@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace IndiceAcademico
 {
-    class ClassAsignatura
+    public class Asignatura
     {
         public string Clave { get; set; }
 
-        public string NombreAsig { get; set; }
+        public string Nombre { get; set; }
 
         public int Credito { get; set; }
 

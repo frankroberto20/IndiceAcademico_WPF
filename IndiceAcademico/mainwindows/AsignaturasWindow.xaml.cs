@@ -23,11 +23,7 @@ namespace IndiceAcademico
 		public AsignaturasWindow()
 		{
 			InitializeComponent();
-			asignaturasLST.Add(new Asignatura() { Clave = "CBF210", Nombre = "Fisica Mecanica I", Creditos = 4 });
-			AsignaturaDataGrid.ItemsSource = asignaturasLST;
 		}
-
-		public List<Asignatura> asignaturasLST = new List<Asignatura>();
 
 		private void AsignaturaDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
 		{
@@ -47,14 +43,6 @@ namespace IndiceAcademico
 		private void AsignaturaDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
 		}
-	}
-
-	public class Asignatura
-	{
-		public string Clave { get; set; }
-		public string Nombre { get; set; }
-		public int Creditos { get; set; }
-
 	}
 
 }

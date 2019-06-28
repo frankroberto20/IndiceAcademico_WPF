@@ -55,7 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="editwindows\AgregarAsignatura.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="editwindows\AgregarEstudiante.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="editwindows\AgregarProfesor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,12 +79,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="classes\ClassAsignatura.cs" />
+    <Compile Include="classes\ClassEstudiante.cs" />
+    <Compile Include="classes\ClassProfesores.cs" />
+    <Compile Include="editwindows\AgregarAsignatura.xaml.cs">
+      <DependentUpon>AgregarAsignatura.xaml</DependentUpon>
+    </Compile>
     <Compile Include="editwindows\AgregarEstudiante.xaml.cs">
       <DependentUpon>AgregarEstudiante.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="editwindows\AgregarProfesor.xaml.cs">
+      <DependentUpon>AgregarProfesor.xaml</DependentUpon>
     </Compile>
     <Compile Include="mainwindows\AsignaturasWindow.xaml.cs">
       <DependentUpon>AsignaturasWindow.xaml</DependentUpon>

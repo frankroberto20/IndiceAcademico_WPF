@@ -1,20 +1,21 @@
-﻿<Window x:Class="IndiceAcademico.AgregarEstudiante"
+﻿<Window x:Class="IndiceAcademico.editwindows.AgregarAsignatura"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IndiceAcademico"
+        xmlns:local="clr-namespace:IndiceAcademico.editwindows"
         mc:Ignorable="d"
-        Title="AgregarEstudiante" Height="220.36" Width="401.8">
+        Title="AgregarAsignatura" Height="220.36" Width="401.8">
     <Grid>
         <Label Content="Agregar Estudiante" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Microsoft Sans Serif" FontSize="18"/>
         <Rectangle Fill="Black" Height="3" Margin="10,45,10,0" VerticalAlignment="Top">
         </Rectangle>
         <Button Content="Guardar" HorizontalAlignment="Left" Margin="277,13,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Nombre Completo" HorizontalAlignment="Left" Margin="43,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="98,75,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="inputNombre" HorizontalAlignment="Left" Height="23" Margin="157,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Carrera" HorizontalAlignment="Left" Margin="104,106,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="inputCarrera" HorizontalAlignment="Left" Height="23" Margin="157,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
+        <Label Content="Clave" HorizontalAlignment="Left" Margin="114,106,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="inputClave" HorizontalAlignment="Left" Height="23" Margin="157,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Creditos" HorizontalAlignment="Left" Margin="98,132,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="inputCreditos" HorizontalAlignment="Left" Height="23" Margin="157,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

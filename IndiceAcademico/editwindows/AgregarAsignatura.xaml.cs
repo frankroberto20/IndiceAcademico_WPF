@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace IndiceAcademico
+namespace IndiceAcademico.editwindows
 {
 	/// <summary>
-	/// Interaction logic for EstudiantesWindow.xaml
+	/// Interaction logic for AgregarAsignatura.xaml
 	/// </summary>
-	public partial class EstudiantesWindow : UserControl
+	public partial class AgregarAsignatura : Window
 	{
-		public EstudiantesWindow()
+		public AgregarAsignatura()
 		{
 			InitializeComponent();
-		}
-
-		private void EstudiantesDataGrid_Selected(object sender, RoutedEventArgs e)
-		{
-
 		}
 	}
 }

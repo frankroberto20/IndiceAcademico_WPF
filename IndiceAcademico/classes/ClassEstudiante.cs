@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace IndiceAcademico
 {
-    class ClassProfesores
+    public class Estudiante
     {
-        public int IDProfesor { get; set; }
+        public int ID { get; set; }
 
-        public string NombreProfesor { get; set; }
+        public string Nombre { get; set; }
+
+        public string Carrera { get; set; }
 
     }
 }
