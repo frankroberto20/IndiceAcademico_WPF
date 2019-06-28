@@ -46,7 +46,6 @@ namespace IndiceAcademico
 
 		private void AsignaturaDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
-
 		}
 	}
 

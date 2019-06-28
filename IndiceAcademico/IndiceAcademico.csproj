@@ -55,11 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AsignaturasWindow.xaml">
+    <Page Include="editwindows\AgregarEstudiante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EstudiantesWindow.xaml">
+    <Page Include="mainwindows\AsignaturasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainwindows\EstudiantesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,27 +71,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="editwindows\AgregarEstudiante.xaml.cs">
+      <DependentUpon>AgregarEstudiante.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AsignaturasWindow.xaml.cs">
+    <Compile Include="mainwindows\AsignaturasWindow.xaml.cs">
       <DependentUpon>AsignaturasWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EstudiantesWindow.xaml.cs">
+    <Compile Include="mainwindows\EstudiantesWindow.xaml.cs">
       <DependentUpon>EstudiantesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ProfesoresWindow.xaml">
+    <Page Include="mainwindows\ProfesoresWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProfesoresWindow.xaml.cs">
+    <Compile Include="mainwindows\ProfesoresWindow.xaml.cs">
       <DependentUpon>ProfesoresWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
