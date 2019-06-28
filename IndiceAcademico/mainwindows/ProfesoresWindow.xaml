@@ -12,5 +12,6 @@
         </Rectangle>
         <DataGrid x:Name="ProfesoresDataGrid" Height="312" Margin="37,97,39,0" VerticalAlignment="Top" AutoGenerateColumns="True" Grid.ColumnSpan="100" AutoGeneratingColumn="ProfesoresDataGrid_AutoGeneratingColumn" IsReadOnly="True" DataGridRow.Selected="ProfesoresDataGrid_Selected">
         </DataGrid>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="507,24,0,0" VerticalAlignment="Top" Width="75" Click="Agregar_Click"/>
     </Grid>
 </UserControl>

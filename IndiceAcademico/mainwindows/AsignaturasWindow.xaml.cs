@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IndiceAcademico.editwindows;
 
 namespace IndiceAcademico
 {
@@ -37,11 +38,19 @@ namespace IndiceAcademico
 
 		private void Asignatura_MouseDoubleClick(object sender, MouseButtonEventArgs e)
 		{
-
+			Window agregarAsignatura = new AgregarAsignatura();
+			agregarAsignatura.Show();
 		}
 
 		private void AsignaturaDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
+		}
+
+		private void Agregar_Click(object sender, RoutedEventArgs e)
+		{
+			Window agregarAsignatura = new AgregarAsignatura();
+			agregarAsignatura.Show();
+			
 		}
 	}
 

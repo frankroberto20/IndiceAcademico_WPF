@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IndiceAcademico.editwindows;
 
 namespace IndiceAcademico
 {
@@ -28,6 +29,17 @@ namespace IndiceAcademico
 		private void EstudiantesDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
 
+		}
+
+		private void EstudiantesDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+		{
+
+		}
+
+		private void Agregar_Click(object sender, RoutedEventArgs e)
+		{
+			Window agregarEstudiante = new AgregarEstudiante();
+			agregarEstudiante.Show();
 		}
 	}
 }
