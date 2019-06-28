@@ -74,6 +74,9 @@
     <Compile Include="AsignaturasWindow.xaml.cs">
       <DependentUpon>AsignaturasWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClassAsignatura.cs" />
+    <Compile Include="ClassEstudiante.cs" />
+    <Compile Include="ClassProfesores.cs" />
     <Compile Include="EstudiantesWindow.xaml.cs">
       <DependentUpon>EstudiantesWindow.xaml</DependentUpon>
     </Compile>
