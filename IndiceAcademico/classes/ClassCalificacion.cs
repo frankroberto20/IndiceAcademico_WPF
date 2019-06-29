@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IndiceAcademico
 {
-    public class Asignatura
+    public class Calificacion
     {
         public int Nota { get; set; }
 
