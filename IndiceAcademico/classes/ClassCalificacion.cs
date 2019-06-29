@@ -17,8 +17,15 @@ namespace IndiceAcademico
          public string Asignatura {get; set;}
          */
 
-        
+        /*
+         por si se necesita agregar una propiedad de Estudiante:
+         
+        public Estudiante estudiante {get; set;}
 
+        o
+
+        public string EstudianteNombre{get; set;}
+        */
         
     }
 }
