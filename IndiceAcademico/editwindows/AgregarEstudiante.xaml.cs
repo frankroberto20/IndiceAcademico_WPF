@@ -21,7 +21,7 @@ namespace IndiceAcademico
 	public partial class AgregarEstudiante : Window
 	{
 
-		static int GetID()
+		public static int GetID()
 		{
 			int temp = 1;
 			foreach (var line in File.ReadLines(EstudiantesWindow.filepathEs).Skip(1))
@@ -59,6 +59,8 @@ namespace IndiceAcademico
 			EstudiantesWindow.estudiantesLST.Add(estudiante);
 			string[] line = { estudiante.ToFile() };
 			File.AppendAllLines(EstudiantesWindow.filepathEs, line);
+
+			this.Close();
 
 		}
 	}

@@ -27,7 +27,7 @@ namespace IndiceAcademico
 		public static List<Estudiante> estudiantesLST = new List<Estudiante>();
 		public static string filepathEs = "Estudiantes.csv";
 
-		public static void RecuperarLista()
+		public void RecuperarLista()
 		{
 			foreach (var line in File.ReadLines(filepathEs).Skip(1))
 			{
@@ -39,6 +39,19 @@ namespace IndiceAcademico
 				}
 
 			}
+		}
+
+		public static void OverWriteFile(List<Estudiante> list)
+		{
+			string[] datos = new string[AgregarEstudiante.GetID() - 1];
+			int counter = 0;
+			foreach (var estudiante in list)
+			{
+				datos[counter++] = estudiante.ToFile();
+			}
+			string[] header = { "ID,Nombre,Carrera" };
+			File.WriteAllLines(filepathEs, header);
+			File.AppendAllLines(filepathEs, datos);
 		}
 
 		public EstudiantesWindow()
@@ -53,8 +66,16 @@ namespace IndiceAcademico
 
 		private void EstudiantesDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
-			Estudiante estudiante = (Estudiante)EstudiantesDataGrid.SelectedItem;
+			MessageBoxResult result = MessageBox.Show("Desea Eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
+			
+			if (result == MessageBoxResult.Yes)
+			{
+				estudiantesLST.Remove((Estudiante)EstudiantesDataGrid.SelectedItem);
+				OverWriteFile(estudiantesLST);
+			}
 
+			EstudiantesDataGrid.ItemsSource = null;
+			EstudiantesDataGrid.ItemsSource = estudiantesLST;
 		}
 
 		private void EstudiantesDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -71,6 +92,12 @@ namespace IndiceAcademico
 		{
 			Window agregarEstudiante = new AgregarEstudiante();
 			agregarEstudiante.Show();
+		}
+
+		private void Actualizar_Click(object sender, RoutedEventArgs e)
+		{
+			EstudiantesDataGrid.ItemsSource = null;
+			EstudiantesDataGrid.ItemsSource = estudiantesLST;
 		}
 	}
 }
