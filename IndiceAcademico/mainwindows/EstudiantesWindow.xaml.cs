@@ -26,53 +26,28 @@ namespace IndiceAcademico
 
 		public static List<Estudiante> estudiantesLST = new List<Estudiante>();
 		public static string filepathEs = "Estudiantes.csv";
-
-		public void RecuperarLista()
-		{
-			foreach (var line in File.ReadLines(filepathEs).Skip(1))
-			{
-				var data = line.Split(',');
-				if (data.Length == 3)
-				{
-					Estudiante est = new Estudiante { ID = Convert.ToInt32(data[0]), Nombre = data[1], Carrera = data[2]};
-					estudiantesLST.Add(est);
-				}
-
-			}
-		}
-
-		public static void OverWriteFile(List<Estudiante> list)
-		{
-			string[] datos = new string[AgregarEstudiante.GetID() - 1];
-			int counter = 0;
-			foreach (var estudiante in list)
-			{
-				datos[counter++] = estudiante.ToFile();
-			}
-			string[] header = { "ID,Nombre,Carrera" };
-			File.WriteAllLines(filepathEs, header);
-			File.AppendAllLines(filepathEs, datos);
-		}
+		ManejoArchivo archivo = new ManejoArchivo(filepathEs);
 
 		public EstudiantesWindow()
 		{
 			InitializeComponent();
 
 			if (File.Exists(filepathEs))
-				RecuperarLista();
+				archivo.RecuperarLista(estudiantesLST);
 
 			EstudiantesDataGrid.ItemsSource = estudiantesLST;
 		}
 
 		private void EstudiantesDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
-			MessageBoxResult result = MessageBox.Show("Desea Eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
+			MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
 			
 			if (result == MessageBoxResult.Yes)
 			{
 				estudiantesLST.Remove((Estudiante)EstudiantesDataGrid.SelectedItem);
-				OverWriteFile(estudiantesLST);
 			}
+
+			archivo.OverWriteFile(estudiantesLST);
 
 			EstudiantesDataGrid.ItemsSource = null;
 			EstudiantesDataGrid.ItemsSource = estudiantesLST;
@@ -81,11 +56,11 @@ namespace IndiceAcademico
 		private void EstudiantesDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
 		{
 			if (e.PropertyName == "ID")
-				e.Column.Width = 130;
+				e.Column.Width = 100;
 			if (e.PropertyName == "Nombre")
 				e.Column.Width = 330;
 			if (e.PropertyName == "Carrera")
-				e.Column.Width = 100;
+				e.Column.Width = 120;
 		}
 
 		private void Agregar_Click(object sender, RoutedEventArgs e)
@@ -98,6 +73,12 @@ namespace IndiceAcademico
 		{
 			EstudiantesDataGrid.ItemsSource = null;
 			EstudiantesDataGrid.ItemsSource = estudiantesLST;
+		}
+
+		private void Editar_Click(object sender, RoutedEventArgs e)
+		{
+			Window editarEstudiante = new EditarEstudiante();
+			editarEstudiante.Show();
 		}
 	}
 }

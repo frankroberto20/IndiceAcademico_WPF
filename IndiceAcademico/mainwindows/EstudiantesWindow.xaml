@@ -10,10 +10,10 @@
         <Label Content="Estudiantes" Margin="37,24,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="22" FontFamily="MS Reference Sans Serif" Foreground="Black" HorizontalAlignment="Left" Width="138"/>
         <Rectangle Fill="#FFFF2D2D" Height="4" Margin="40,65,40,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
         </Rectangle>
-        <DataGrid x:FieldModifier="public" x:Name="EstudiantesDataGrid" Height="312" Margin="37,97,39,0" VerticalAlignment="Top" AutoGenerateColumns="True" Grid.ColumnSpan="100" AutoGeneratingColumn="EstudiantesDataGrid_AutoGeneratingColumn" IsReadOnly="True" MouseDoubleClick="EstudiantesDataGrid_Selected"/>
+        <DataGrid x:Name="EstudiantesDataGrid" Height="312" Margin="37,97,39,0" VerticalAlignment="Top" AutoGenerateColumns="True" Grid.ColumnSpan="100" AutoGeneratingColumn="EstudiantesDataGrid_AutoGeneratingColumn" IsReadOnly="True" MouseDoubleClick="EstudiantesDataGrid_Selected"/>
 
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="507,24,0,0" VerticalAlignment="Top" Width="75" Click="Agregar_Click"/>
-        <Button x:Name="btnEditar" Content="Agregar" HorizontalAlignment="Left" Margin="406,24,0,0" VerticalAlignment="Top" Width="75" Click="Agregar_Click" RenderTransformOrigin="-0.133,0.809"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="406,24,0,0" VerticalAlignment="Top" Width="75" Click="Editar_Click" RenderTransformOrigin="-0.133,0.809"/>
         <Button Content="Actualizar" HorizontalAlignment="Left" Margin="507,77,0,0" VerticalAlignment="Top" Width="75" Click="Actualizar_Click"/>
     </Grid>
 

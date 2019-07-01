@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IndiceAcademico.classes;
 
 namespace IndiceAcademico.editwindows
 {
@@ -19,14 +20,13 @@ namespace IndiceAcademico.editwindows
 	/// </summary>
 	public partial class EditarEstudiante : Window
 	{
-		
-		List<Estudiante> estudiantes = new List<Estudiante>();
+
+		ManejoArchivo archivo = new ManejoArchivo(EstudiantesWindow.filepathEs);
 
 		public EditarEstudiante()
 		{
 			InitializeComponent();
-			estudiantes.Add(new Estudiante { ID = 1, Nombre = "Pedro", Carrera = "INS" });
-			ListaEstudiantes.ItemsSource = estudiantes;
+			ListaEstudiantes.ItemsSource = EstudiantesWindow.estudiantesLST;
 		}
 
 		private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -34,6 +34,18 @@ namespace IndiceAcademico.editwindows
 			Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
 			inputNombre.Text = estudiante.Nombre;
 			inputCarrera.Text = estudiante.Carrera;
+		}
+
+		private void Agregar_Click(object sender, RoutedEventArgs e)
+		{
+			Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
+			estudiante.Nombre = inputNombre.Text;
+			estudiante.Carrera = inputCarrera.Text;
+
+			archivo.OverWriteFile(EstudiantesWindow.estudiantesLST);
+
+			MessageBox.Show("Cambios guardados exitosamente!");
+			Close();
 		}
 	}
 }

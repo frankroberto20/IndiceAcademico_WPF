@@ -11,42 +11,38 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.IO;
 using IndiceAcademico.classes;
 
 namespace IndiceAcademico.editwindows
 {
 	/// <summary>
-	/// Interaction logic for AgregarProfesor.xaml
+	/// Interaction logic for EditarProfesor.xaml
 	/// </summary>
-	public partial class AgregarProfesor : Window
+	public partial class EditarProfesor : Window
 	{
-		static int idCounter = 1;
 		ManejoArchivo archivo = new ManejoArchivo(ProfesoresWindow.filepathPro);
 
-		public AgregarProfesor()
+		public EditarProfesor()
 		{
 			InitializeComponent();
+			ListaProfesores.ItemsSource = ProfesoresWindow.profesoresLST;
 		}
 
 		private void Guardar_Click(object sender, RoutedEventArgs e)
 		{
-			if (File.Exists(ProfesoresWindow.filepathPro))
-			{
-				idCounter = archivo.GetIDProfesor();
-			}
-			else
-			{
-				string[] lines = { "ID,Nombre" };
-				File.AppendAllLines(ProfesoresWindow.filepathPro, lines);
-			}
+			Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
+			profesor.Nombre = inputNombre.Text;
 
-			Profesor profesor = new Profesor { ID = idCounter++, Nombre = inputNombre.Text};
-			ProfesoresWindow.profesoresLST.Add(profesor);
-			string[] line = { profesor.ToFile() };
-			File.AppendAllLines(ProfesoresWindow.filepathPro, line);
+			archivo.OverWriteFile(ProfesoresWindow.profesoresLST);
 
-			this.Close();
+			MessageBox.Show("Cambios guardados exitosamente!");
+			Close();
+		}
+
+		private void ListaProfesores_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
+			inputNombre.Text = profesor.Nombre;
 		}
 	}
 }

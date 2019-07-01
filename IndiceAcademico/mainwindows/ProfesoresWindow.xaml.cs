@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IndiceAcademico.editwindows;
+using IndiceAcademico.classes;
+using System.IO;
 
 namespace IndiceAcademico
 {
@@ -21,25 +23,59 @@ namespace IndiceAcademico
 	/// </summary>
 	public partial class ProfesoresWindow : UserControl
 	{
+		public static List<Profesor> profesoresLST = new List<Profesor>();
+		public static string filepathPro = "Profesores.csv";
+		ManejoArchivo archivo = new ManejoArchivo(filepathPro);
+
 		public ProfesoresWindow()
 		{
 			InitializeComponent();
+
+			if (File.Exists(filepathPro))
+				archivo.RecuperarLista(profesoresLST);
+
+			ProfesoresDataGrid.ItemsSource = profesoresLST;
 		}
 
 		private void ProfesoresDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
 		{
-
+			if (e.PropertyName == "ID")
+				e.Column.Width = 100;
+			if (e.PropertyName == "Nombre")
+				e.Column.Width = 450;
 		}
 
 		private void ProfesoresDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
+			MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
 
+			if (result == MessageBoxResult.Yes)
+			{
+				profesoresLST.Remove((Profesor)ProfesoresDataGrid.SelectedItem);
+			}
+
+			archivo.OverWriteFile(profesoresLST);
+
+			ProfesoresDataGrid.ItemsSource = null;
+			ProfesoresDataGrid.ItemsSource = profesoresLST;
 		}
 
 		private void Agregar_Click(object sender, RoutedEventArgs e)
 		{
 			Window agregarProfesor = new AgregarProfesor();
 			agregarProfesor.Show();
+		}
+
+		private void Actualizar_Click(object sender, RoutedEventArgs e)
+		{
+			ProfesoresDataGrid.ItemsSource = null;
+			ProfesoresDataGrid.ItemsSource = profesoresLST;
+		}
+
+		private void Editar_Click(object sender, RoutedEventArgs e)
+		{
+			Window editarProfesor = new EditarProfesor();
+			editarProfesor.Show();
 		}
 	}
 }

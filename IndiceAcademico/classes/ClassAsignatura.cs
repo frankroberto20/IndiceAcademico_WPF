@@ -12,11 +12,16 @@ namespace IndiceAcademico
 
         public string Nombre { get; set; }
 
-        public int Credito { get; set; }
+        public int Creditos { get; set; }
 
 		public override string ToString()
 		{
 			return Nombre;
+		}
+
+		public string ToFile()
+		{
+			return (Clave + "," + Nombre + "," + Creditos);
 		}
 
 

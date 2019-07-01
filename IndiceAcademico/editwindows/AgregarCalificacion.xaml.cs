@@ -20,7 +20,7 @@ namespace IndiceAcademico.editwindows
 	public partial class AgregarCalificacion : Window
 	{
 		static List<Asignatura> asignaturas = new List<Asignatura>();
-		Asignatura asignatura = new Asignatura { Clave = "INS222", Nombre = "Tecnicas", Credito = 5 };
+		Asignatura asignatura = new Asignatura { Clave = "INS222", Nombre = "Tecnicas", Creditos = 5 };
 
 		public AgregarCalificacion()
 		{

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using IndiceAcademico.classes;
 
 namespace IndiceAcademico
 {
@@ -20,34 +21,20 @@ namespace IndiceAcademico
 	/// </summary>
 	public partial class AgregarEstudiante : Window
 	{
-
-		public static int GetID()
-		{
-			int temp = 1;
-			foreach (var line in File.ReadLines(EstudiantesWindow.filepathEs).Skip(1))
-			{
-				var data = line.Split(',');
-				if (data.Length == 3)
-				{
-					temp = Convert.ToInt16(data[0]);
-				}
-			}
-			return temp + 1;
-		}
-
 		static int idCounter = 1;
+		ManejoArchivo archivo = new ManejoArchivo(EstudiantesWindow.filepathEs);
 
 		public AgregarEstudiante()
 		{
 			InitializeComponent();
 		}
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		private void Guardar_Click(object sender, RoutedEventArgs e)
 		{
 
 			if (File.Exists(EstudiantesWindow.filepathEs))
 			{
-				idCounter = GetID();
+				idCounter = archivo.GetID();
 			}
 			else
 			{

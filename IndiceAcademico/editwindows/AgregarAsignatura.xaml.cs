@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IndiceAcademico.classes;
+using System.IO;
 
 namespace IndiceAcademico.editwindows
 {
@@ -19,9 +21,27 @@ namespace IndiceAcademico.editwindows
 	/// </summary>
 	public partial class AgregarAsignatura : Window
 	{
+		ManejoArchivo archivo = new ManejoArchivo(AsignaturasWindow.filepathAsi);
+
 		public AgregarAsignatura()
 		{
 			InitializeComponent();
+		}
+
+		private void Guardar_Click(object sender, RoutedEventArgs e)
+		{
+			if (!File.Exists(AsignaturasWindow.filepathAsi))
+			{
+				string[] lines = { "Clave,Nombre,Creditos" };
+				File.AppendAllLines(AsignaturasWindow.filepathAsi, lines);
+			}
+
+			Asignatura asignatura = new Asignatura { Clave = inputClave.Text, Nombre = inputNombre.Text, Creditos = Convert.ToInt32(inputCreditos.Text) };
+			AsignaturasWindow.asignaturasLST.Add(asignatura);
+			string[] line = { asignatura.ToFile() };
+			File.AppendAllLines(AsignaturasWindow.filepathAsi, line);
+
+			Close();
 		}
 	}
 }
