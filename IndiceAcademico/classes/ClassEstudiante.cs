@@ -14,5 +14,15 @@ namespace IndiceAcademico
 
         public string Carrera { get; set; }
 
-    }
+		public override string ToString()
+		{
+			return Nombre;
+		}
+
+		public string ToFile()
+		{
+			return (ID + "," + Nombre + "," + Carrera);
+		}
+
+	}
 }

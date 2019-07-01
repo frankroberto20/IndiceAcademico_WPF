@@ -59,11 +59,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="editwindows\AgregarCalificacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="editwindows\AgregarEstudiante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="editwindows\AgregarProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="editwindows\EditarEstudiante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,10 +88,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="classes\ClassAsignatura.cs" />
+    <Compile Include="classes\ClassCalificacion.cs" />
     <Compile Include="classes\ClassEstudiante.cs" />
     <Compile Include="classes\ClassProfesores.cs" />
+    <Compile Include="classes\ManejoArchivo.cs" />
     <Compile Include="editwindows\AgregarAsignatura.xaml.cs">
       <DependentUpon>AgregarAsignatura.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="editwindows\AgregarCalificacion.xaml.cs">
+      <DependentUpon>AgregarCalificacion.xaml</DependentUpon>
     </Compile>
     <Compile Include="editwindows\AgregarEstudiante.xaml.cs">
       <DependentUpon>AgregarEstudiante.xaml</DependentUpon>
@@ -94,6 +107,9 @@
     </Compile>
     <Compile Include="editwindows\AgregarProfesor.xaml.cs">
       <DependentUpon>AgregarProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="editwindows\EditarEstudiante.xaml.cs">
+      <DependentUpon>EditarEstudiante.xaml</DependentUpon>
     </Compile>
     <Compile Include="mainwindows\AsignaturasWindow.xaml.cs">
       <DependentUpon>AsignaturasWindow.xaml</DependentUpon>

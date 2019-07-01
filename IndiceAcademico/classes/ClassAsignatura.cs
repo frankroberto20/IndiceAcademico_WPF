@@ -14,10 +14,13 @@ namespace IndiceAcademico
 
         public int Credito { get; set; }
 
-        
+		public override string ToString()
+		{
+			return Nombre;
+		}
 
-        
-    }
+
+	}
 
 
 }

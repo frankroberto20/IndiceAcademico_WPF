@@ -8,9 +8,9 @@ namespace IndiceAcademico
 {
     public class Calificacion
     {
-        public int Nota { get; set; }
+        public double Nota { get; set; }
 
-        public Asignatura asignatura { get; set; }
+        public Asignatura Asignatura { get; set; }
 
         /*
          Si public Asignatura asignatura no sirve, pues use:
