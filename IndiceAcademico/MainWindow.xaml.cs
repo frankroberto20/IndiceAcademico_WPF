@@ -45,5 +45,10 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscProfesores, 1);
 			Panel.SetZIndex(uscAsignaturas, 0);
 		}
+
+		private void Indice_ButtonClick(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

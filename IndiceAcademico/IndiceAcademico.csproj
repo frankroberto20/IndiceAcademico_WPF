@@ -135,12 +135,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="mainwindows\ProfesoresWindow.xaml">
+    <Page Include="mainwindows\IndiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="mainwindows\ProfesoresWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mainwindows\IndiceWindow.xaml.cs">
+      <DependentUpon>IndiceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="mainwindows\ProfesoresWindow.xaml.cs">
       <DependentUpon>ProfesoresWindow.xaml</DependentUpon>
     </Compile>
@@ -168,6 +175,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\images\logo-intec-secundario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\images\refresh_black_27x27.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

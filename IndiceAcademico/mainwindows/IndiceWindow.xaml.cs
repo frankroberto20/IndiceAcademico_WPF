@@ -10,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace IndiceAcademico.editwindows
+namespace IndiceAcademico.mainwindows
 {
 	/// <summary>
-	/// Interaction logic for AgregarCalificacion.xaml
+	/// Interaction logic for IndiceWindow.xaml
 	/// </summary>
-	public partial class AgregarCalificacion : Window
+	public partial class IndiceWindow : UserControl
 	{
-
-		public AgregarCalificacion()
+		public IndiceWindow()
 		{
 			InitializeComponent();
-
-		}
-
-		private void Guardar_Click(object sender, RoutedEventArgs e)
-		{
-
 		}
 	}
 }

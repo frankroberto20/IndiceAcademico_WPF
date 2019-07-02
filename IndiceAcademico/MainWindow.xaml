@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Sistema de Registro INTEC" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
-        <Button Content="Estudiantes" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="156" Height="79" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Estudiantes_ButtonClick"/>
-        <Button Content="Asignaturas" HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" Width="156" Height="79" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Asignaturas_ButtonClick"/>
-        <Button Content="Profesores" HorizontalAlignment="Left" Margin="0,239,0,0" VerticalAlignment="Top" Width="156" Height="79" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Profesores_ButtonClick"/>
+        <Button Content="Estudiantes" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Estudiantes_ButtonClick"/>
+        <Button Content="Asignaturas" HorizontalAlignment="Left" Margin="0,185,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Asignaturas_ButtonClick"/>
+        <Button Content="Profesores" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Profesores_ButtonClick"/>
+        <Button Content="Indice" HorizontalAlignment="Left" Margin="0,315,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Indice_ButtonClick"/>
+        <Image Source="recursos/images/logo-intec-secundario.png" Margin="11,0,650,292"/>
         <Canvas HorizontalAlignment="Left" Height="419" Margin="156,0,0,0" VerticalAlignment="Top" Width="636">
             <local:EstudiantesWindow x:Name="uscEstudiantes" Height="419" Width="636" Panel.ZIndex="1"/>
             <local:AsignaturasWindow x:Name="uscAsignaturas" Height="419" Width="636" Panel.ZIndex="0"/>
             <local:ProfesoresWindow x:Name="uscProfesores" Height="419" Width="636" Panel.ZIndex="0"/>
-        </Canvas> 
+        </Canvas>
+
     </Grid>
 </Window>

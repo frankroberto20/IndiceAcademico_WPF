@@ -7,14 +7,16 @@
         mc:Ignorable="d"
         Title="AgregarCalificacion" Height="220.36" Width="401.8">
     <Grid>
-        <Label Content="Agregar Estudiante" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Microsoft Sans Serif" FontSize="18"/>
+        <Label Content="Agregar Calificacion" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Microsoft Sans Serif" FontSize="18"/>
         <Rectangle Fill="Black" Height="3" Margin="10,45,10,0" VerticalAlignment="Top">
         </Rectangle>
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="277,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Guardar" HorizontalAlignment="Left" Margin="277,13,0,0" VerticalAlignment="Top" Width="75" Click="Guardar_Click"/>
         <Label Content="Nota" HorizontalAlignment="Left" Margin="116,75,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="inputNota" HorizontalAlignment="Left" Height="23" Margin="157,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Asignatura" HorizontalAlignment="Left" Margin="85,106,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ListaAsignatura" Text="[Seleccionar]" HorizontalAlignment="Left" Margin="157,110,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Estudiante" HorizontalAlignment="Left" Margin="87,138,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ListaEstudiantes" Text="[Seleccionar]" HorizontalAlignment="Left" Margin="157,142,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

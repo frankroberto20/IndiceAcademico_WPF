@@ -14,6 +14,8 @@ namespace IndiceAcademico
 
         public string Carrera { get; set; }
 
+		public List<Calificacion> Calificaciones;
+
 		public override string ToString()
 		{
 			return Nombre;
@@ -24,5 +26,9 @@ namespace IndiceAcademico
 			return (ID + "," + Nombre + "," + Carrera);
 		}
 
+		public Estudiante()
+		{
+			Calificaciones = new List<Calificacion>();
+		}
 	}
 }
