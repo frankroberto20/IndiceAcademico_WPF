@@ -87,6 +87,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="mainwindows\CalificacionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="mainwindows\EstudiantesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +131,9 @@
     </Compile>
     <Compile Include="mainwindows\AsignaturasWindow.xaml.cs">
       <DependentUpon>AsignaturasWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mainwindows\CalificacionWindow.xaml.cs">
+      <DependentUpon>CalificacionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="mainwindows\EstudiantesWindow.xaml.cs">
       <DependentUpon>EstudiantesWindow.xaml</DependentUpon>

@@ -12,6 +12,10 @@ namespace IndiceAcademico
 
         public Asignatura Asignatura { get; set; }
 
+		public string ToFile()
+		{
+			return Convert.ToString(Nota) + "," + Asignatura.Nombre;
+		}
         /*
          Si public Asignatura asignatura no sirve, pues use:
          public string Asignatura {get; set;}

@@ -52,7 +52,21 @@ namespace IndiceAcademico.classes
 
 			}
 		}
+		public void RecuperarLista(List<Calificacion> lista)
+		{
 
+			foreach (var line in File.ReadLines(FilePath).Skip(1))
+			{
+				var data = line.Split(',');
+
+				if (data.Length == 2)
+				{
+					Calificacion cal = new Calificacion { Nota = Convert.ToDouble(data[0]), Asignatura = AsignaturasWindow.asignaturasLST.Find(a => a.Nombre == data[1])};
+					lista.Add(cal);
+				}
+
+			}
+		}
 
 		public int GetID()
 		{
@@ -120,10 +134,26 @@ namespace IndiceAcademico.classes
 			File.AppendAllLines(FilePath, datos);
 		}
 
+		public void OverWriteFile(List<Calificacion> list)
+		{
+			string[] datos = new string[list.Count];
+			int counter = 0;
+			foreach (var calificacion in list)
+			{
+				datos[counter++] = calificacion.ToFile();
+			}
+			string[] header = { "Nota,Asignatura" };
+			File.WriteAllLines(FilePath, header);
+			File.AppendAllLines(FilePath, datos);
+		}
+
+
 		public ManejoArchivo(string filepath)
 		{
 			FilePath = filepath;
 		}
+
+		public ManejoArchivo() { }
 
 	}
 }

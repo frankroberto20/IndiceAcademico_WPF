@@ -32,6 +32,8 @@ namespace IndiceAcademico
 		{
 			InitializeComponent();
 
+			
+
 			if (File.Exists(filepathEs))
 				archivo.RecuperarLista(estudiantesLST);
 
@@ -41,10 +43,13 @@ namespace IndiceAcademico
 		private void EstudiantesDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
 			MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
-			
+
+			Estudiante estudiante = (Estudiante)EstudiantesDataGrid.SelectedItem;
+
 			if (result == MessageBoxResult.Yes)
 			{
-				estudiantesLST.Remove((Estudiante)EstudiantesDataGrid.SelectedItem);
+				estudiantesLST.Remove(estudiante);
+				File.Delete(estudiante.Nombre + "-Calificaciones.csv");
 			}
 
 			archivo.OverWriteFile(estudiantesLST);

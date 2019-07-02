@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IndiceAcademico.mainwindows;
 
 namespace IndiceAcademico
 {
@@ -30,6 +31,7 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscEstudiantes, 1);
 			Panel.SetZIndex(uscProfesores, 0);
 			Panel.SetZIndex(uscAsignaturas, 0);
+			Panel.SetZIndex(uscCalificaciones, 0);
 		}
 
 		private void Asignaturas_ButtonClick(object sender, RoutedEventArgs e)
@@ -37,6 +39,7 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscEstudiantes, 0);
 			Panel.SetZIndex(uscProfesores, 0);
 			Panel.SetZIndex(uscAsignaturas, 1);
+			Panel.SetZIndex(uscCalificaciones, 0);
 		}
 
 		private void Profesores_ButtonClick(object sender, RoutedEventArgs e)
@@ -44,11 +47,15 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscEstudiantes, 0);
 			Panel.SetZIndex(uscProfesores, 1);
 			Panel.SetZIndex(uscAsignaturas, 0);
+			Panel.SetZIndex(uscCalificaciones, 0);
 		}
 
-		private void Indice_ButtonClick(object sender, RoutedEventArgs e)
+		private void Calificacion_ButtonClick(object sender, RoutedEventArgs e)
 		{
-
+			Panel.SetZIndex(uscEstudiantes, 0);
+			Panel.SetZIndex(uscProfesores, 0);
+			Panel.SetZIndex(uscAsignaturas, 0);
+			Panel.SetZIndex(uscCalificaciones, 1);
 		}
 	}
 }
