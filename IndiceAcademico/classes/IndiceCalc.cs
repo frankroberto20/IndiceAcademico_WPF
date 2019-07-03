@@ -90,22 +90,15 @@ namespace IndiceAcademico
 
 		public double CalcularIndice(Estudiante estudiante)
 		{
-			double sumatoria = 0, multiplicacion, creditosTotales = 0, IndiceAcademico = 0;
-			for (int i = 0; i < estudiante.Calificaciones.Count(); i++)
+			int totalCreditos = 0;
+			double totalPuntos = 0;
+			foreach(var calificacion in estudiante.Calificaciones)
 			{
-				multiplicacion = ValorNota(estudiante.Calificaciones[i]) * CalcularPuntosHonor(estudiante.Calificaciones[i]);
-				sumatoria = sumatoria + multiplicacion;
-				multiplicacion = 0;
+				totalCreditos += calificacion.Asignatura.Creditos;
+				totalPuntos += CalcularPuntosHonor(calificacion);
 			}
 
-			for (int i = 0; i < estudiante.Calificaciones.Count(); i++)
-			{
-				creditosTotales += ObtenerCreditos(estudiante.Calificaciones[i]);
-			}
-
-			IndiceAcademico = sumatoria / creditosTotales;
-
-			return IndiceAcademico;
+			return totalPuntos / totalCreditos;
 		}
 	}
 }
