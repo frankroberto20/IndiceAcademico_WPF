@@ -36,7 +36,7 @@ namespace IndiceAcademico.editwindows
 
 			
 
-			if (inputNota.Text != "")
+			if (inputNota.Text != "" && ListaEstudiantes.SelectedItem != null && ListaAsignatura.SelectedItem != null)
 			{
 				if (!File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
 				{
@@ -44,7 +44,7 @@ namespace IndiceAcademico.editwindows
 					File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", lines);
 				}
 
-				Calificacion calificacion = new Calificacion { Nota = Convert.ToDouble(inputNota.Text) > 100? 100 : Convert.ToDouble(inputNota.Text), Asignatura = (Asignatura)ListaAsignatura.SelectedItem };
+				Calificacion calificacion = new Calificacion { Nota = Convert.ToDouble(inputNota.Text) > 100? 100: Convert.ToDouble(inputNota.Text), Asignatura = (Asignatura)ListaAsignatura.SelectedItem };
 				estudiante.Calificaciones.Add(calificacion);
 				string[] line = { calificacion.ToFile() };
 				File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", line);

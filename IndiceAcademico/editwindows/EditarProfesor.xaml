@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico.editwindows"
         mc:Ignorable="d"
-        Title="EditarProfesor" Height="220.36" Width="401.8">
+        Title="EditarProfesor" Height="220.36" Width="401.8" ResizeMode="NoResize">
     <Grid>
         <Label Content="Editar Profesor" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Microsoft Sans Serif" FontSize="18"/>
         <Rectangle Fill="Black" Height="3" Margin="10,45,10,0" VerticalAlignment="Top">

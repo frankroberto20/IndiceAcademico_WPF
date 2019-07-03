@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico"
         mc:Ignorable="d"
-        Title="EstudianteMainWindow" Height="450" Width="800">
+        Title="EstudianteMainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
         <Image Source="recursos/images/logo-intec-secundario.png" Margin="10,37,646,255"/>

@@ -98,7 +98,7 @@ namespace IndiceAcademico
 				totalPuntos += CalcularPuntosHonor(calificacion);
 			}
 
-			return totalPuntos / totalCreditos;
+			return totalPuntos / (double)totalCreditos;
 		}
 	}
 }

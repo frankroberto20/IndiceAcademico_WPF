@@ -34,6 +34,8 @@ namespace IndiceAcademico.mainwindows
 
 		private void Calcular_Click(object sender, RoutedEventArgs e)
 		{
+			ListaIndice.Items.Clear();
+
 			if (ListEstudiantes.SelectedItem != null)
 			{
 				IndiceCalc indice = new IndiceCalc();
