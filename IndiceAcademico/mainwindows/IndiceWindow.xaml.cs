@@ -1,6 +1,7 @@
 ﻿
 using System.Windows;
 using System.Windows.Controls;
+using System;
 
 
 namespace IndiceAcademico.mainwindows
@@ -51,7 +52,7 @@ namespace IndiceAcademico.mainwindows
 
 				TotalPuntosHonor.Content = totalHonor;
 				TotalCreditos.Content = totalCreditos;
-				IndiceGeneral.Content = indice.CalcularIndice(estudiante);
+				IndiceGeneral.Content = Math.Round(indice.CalcularIndice(estudiante), 2);
 			}
 
 			
