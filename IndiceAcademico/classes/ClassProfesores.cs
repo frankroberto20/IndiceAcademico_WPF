@@ -21,5 +21,10 @@ namespace IndiceAcademico
 		{
 			return (ID + "," + Nombre);
 		}
-    }
+
+		public string ToUser()
+		{
+			return ("P" + "," + ID + "_" + Nombre.Replace(" ", "").ToLower() + "," + "4321");
+		}
+	}
 }

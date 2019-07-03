@@ -26,6 +26,11 @@ namespace IndiceAcademico
 			return (ID + "," + Nombre + "," + Carrera);
 		}
 
+		public string ToUser()
+		{
+			return ("E" + "," + ID + "_" + Nombre.Replace(" ", "").ToLower() + "," + "4321"); 
+		}
+
 		public Estudiante()
 		{
 			Calificaciones = new List<Calificacion>();

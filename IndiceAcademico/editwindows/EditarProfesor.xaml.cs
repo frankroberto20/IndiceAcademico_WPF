@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IndiceAcademico.classes;
+using IndiceAcademico.mainwindows;
 
 namespace IndiceAcademico.editwindows
 {
@@ -30,13 +31,21 @@ namespace IndiceAcademico.editwindows
 
 		private void Guardar_Click(object sender, RoutedEventArgs e)
 		{
-			Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
-			profesor.Nombre = inputNombre.Text;
+			if (ListaProfesores.SelectedItem != null)
+			{
+				Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
+				profesor.Nombre = inputNombre.Text;
 
-			archivo.OverWriteFile(ProfesoresWindow.profesoresLST);
+				archivo.OverWriteFile(ProfesoresWindow.profesoresLST);
 
-			MessageBox.Show("Cambios guardados exitosamente!");
-			Close();
+				MessageBox.Show("Cambios guardados exitosamente!");
+				Close();
+			}
+			else
+			{
+				MessageBox.Show("Seleccione un profesor para editar");
+			}
+			
 		}
 
 		private void ListaProfesores_SelectionChanged(object sender, SelectionChangedEventArgs e)

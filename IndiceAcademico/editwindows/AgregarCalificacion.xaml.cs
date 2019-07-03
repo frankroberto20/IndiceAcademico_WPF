@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using IndiceAcademico.mainwindows;
 
 namespace IndiceAcademico.editwindows
 {
@@ -43,6 +44,8 @@ namespace IndiceAcademico.editwindows
 			estudiante.Calificaciones.Add(calificacion);
 			string[] line = { calificacion.ToFile() };
 			File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", line);
+
+			MessageBox.Show("Cambios guardados exitosamente!");
 
 			Close();
 		}

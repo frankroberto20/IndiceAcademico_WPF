@@ -16,7 +16,7 @@ using IndiceAcademico.editwindows;
 using IndiceAcademico.classes;
 using System.IO;
 
-namespace IndiceAcademico
+namespace IndiceAcademico.mainwindows
 {
 	/// <summary>
 	/// Interaction logic for ProfesoresWindow.xaml

@@ -32,6 +32,7 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscProfesores, 0);
 			Panel.SetZIndex(uscAsignaturas, 0);
 			Panel.SetZIndex(uscCalificaciones, 0);
+			Panel.SetZIndex(uscIndice, 0);
 		}
 
 		private void Asignaturas_ButtonClick(object sender, RoutedEventArgs e)
@@ -40,6 +41,7 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscProfesores, 0);
 			Panel.SetZIndex(uscAsignaturas, 1);
 			Panel.SetZIndex(uscCalificaciones, 0);
+			Panel.SetZIndex(uscIndice, 0);
 		}
 
 		private void Profesores_ButtonClick(object sender, RoutedEventArgs e)
@@ -48,6 +50,7 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscProfesores, 1);
 			Panel.SetZIndex(uscAsignaturas, 0);
 			Panel.SetZIndex(uscCalificaciones, 0);
+			Panel.SetZIndex(uscIndice, 0);
 		}
 
 		private void Calificacion_ButtonClick(object sender, RoutedEventArgs e)
@@ -56,6 +59,16 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscProfesores, 0);
 			Panel.SetZIndex(uscAsignaturas, 0);
 			Panel.SetZIndex(uscCalificaciones, 1);
+			Panel.SetZIndex(uscIndice, 0);
+		}
+
+		private void Indice_ButtonClick(object sender, RoutedEventArgs e)
+		{
+			Panel.SetZIndex(uscEstudiantes, 0);
+			Panel.SetZIndex(uscProfesores, 0);
+			Panel.SetZIndex(uscAsignaturas, 0);
+			Panel.SetZIndex(uscCalificaciones, 0);
+			Panel.SetZIndex(uscIndice, 1);
 		}
 	}
 }

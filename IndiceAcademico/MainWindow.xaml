@@ -9,16 +9,18 @@
         Title="Sistema de Registro INTEC" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
-        <Button Content="Estudiantes" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Estudiantes_ButtonClick"/>
-        <Button Content="Asignaturas" HorizontalAlignment="Left" Margin="0,185,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Asignaturas_ButtonClick"/>
-        <Button Content="Profesores" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Profesores_ButtonClick"/>
-        <Button Content="Calificaciones" HorizontalAlignment="Left" Margin="0,315,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Calificacion_ButtonClick"/>
-        <Image Source="recursos/images/logo-intec-secundario.png" Margin="11,0,650,292"/>
+        <Button Content="Estudiantes" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Estudiantes_ButtonClick"/>
+        <Button Content="Asignaturas" HorizontalAlignment="Left" Margin="0,152,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Asignaturas_ButtonClick"/>
+        <Button Content="Profesores" HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Profesores_ButtonClick"/>
+        <Button Content="Calificaciones" HorizontalAlignment="Left" Margin="0,282,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Calificacion_ButtonClick"/>
+        <Button Content="Indice" HorizontalAlignment="Left" Margin="0,347,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Indice_ButtonClick"/>
+        <Image Source="recursos/images/logo-intec-secundario.png" Margin="0,0,707,339"/>
         <Canvas HorizontalAlignment="Left" Height="419" Margin="156,0,0,0" VerticalAlignment="Top" Width="636">
-            <local:EstudiantesWindow x:Name="uscEstudiantes" Height="419" Width="636" Panel.ZIndex="1"/>
-            <local:AsignaturasWindow x:Name="uscAsignaturas" Height="419" Width="636" Panel.ZIndex="0"/>
-            <local:ProfesoresWindow x:Name="uscProfesores" Height="419" Width="636" Panel.ZIndex="0"/>
+            <mainwindows:EstudiantesWindow x:Name="uscEstudiantes" Height="419" Width="636" Panel.ZIndex="1"/>
+            <mainwindows:AsignaturasWindow x:Name="uscAsignaturas" Height="419" Width="636" Panel.ZIndex="0"/>
             <mainwindows:CalificacionWindow x:Name="uscCalificaciones" Height="419" Width="636" Panel.ZIndex="0"/>
+            <mainwindows:ProfesoresWindow x:Name="uscProfesores" Height="419" Width="636" Panel.ZIndex="0"/>
+            <mainwindows:IndiceWindow x:Name="uscIndice" Height="419" Width="636" Panel.ZIndex="0"/>
         </Canvas>
 
     </Grid>

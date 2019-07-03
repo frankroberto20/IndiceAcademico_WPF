@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="IndiceAcademico.EstudiantesWindow"
+﻿<UserControl x:Class="IndiceAcademico.mainwindows.EstudiantesWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:IndiceAcademico"
+             xmlns:local="clr-namespace:IndiceAcademico.mainwindows"
              mc:Ignorable="d" 
              d:DesignHeight="419" d:DesignWidth="636">
     <Grid Background="White">
@@ -16,7 +16,7 @@
         <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="406,24,0,0" VerticalAlignment="Top" Width="75" Click="Editar_Click" RenderTransformOrigin="-0.133,0.809"/>
         <Button x:Name="btnActualizar" HorizontalAlignment="Left" Margin="555,74,0,0" VerticalAlignment="Top" Width="23" Click="Actualizar_Click" Height="23" BorderBrush="{x:Null}" >
             <Button.Background>
-                <ImageBrush ImageSource="/recursos/images/refresh_black_27x27.png"/>
+                <ImageBrush ImageSource="../recursos/images/refresh_black_27x27.png"/>
             </Button.Background>
         </Button>
     </Grid>

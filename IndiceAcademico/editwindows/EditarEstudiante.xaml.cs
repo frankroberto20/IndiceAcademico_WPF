@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IndiceAcademico.classes;
+using IndiceAcademico.mainwindows;
 
 namespace IndiceAcademico.editwindows
 {
@@ -38,14 +39,23 @@ namespace IndiceAcademico.editwindows
 
 		private void Agregar_Click(object sender, RoutedEventArgs e)
 		{
-			Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
-			estudiante.Nombre = inputNombre.Text;
-			estudiante.Carrera = inputCarrera.Text;
+			if (ListaEstudiantes.SelectedItem != null)
+			{
+				Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
+				estudiante.Nombre = inputNombre.Text;
+				estudiante.Carrera = inputCarrera.Text;
 
-			archivo.OverWriteFile(EstudiantesWindow.estudiantesLST);
+				archivo.OverWriteFile(EstudiantesWindow.estudiantesLST);
 
-			MessageBox.Show("Cambios guardados exitosamente!");
-			Close();
+				MessageBox.Show("Cambios guardados exitosamente!");
+				Close();
+			}
+
+			else
+			{
+				MessageBox.Show("Seleccione un estudiante para editar");
+			}
+			
 		}
 	}
 }

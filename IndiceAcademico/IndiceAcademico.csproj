@@ -83,6 +83,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EstudianteMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="mainwindows\AsignaturasWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +111,7 @@
     <Compile Include="classes\ClassCalificacion.cs" />
     <Compile Include="classes\ClassEstudiante.cs" />
     <Compile Include="classes\ClassProfesores.cs" />
+    <Compile Include="classes\IndiceCalc.cs" />
     <Compile Include="classes\ManejoArchivo.cs" />
     <Compile Include="editwindows\AgregarAsignatura.xaml.cs">
       <DependentUpon>AgregarAsignatura.xaml</DependentUpon>
@@ -129,6 +138,12 @@
     <Compile Include="editwindows\EditarProfesor.xaml.cs">
       <DependentUpon>EditarProfesor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EstudianteMainWindow.xaml.cs">
+      <DependentUpon>EstudianteMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="mainwindows\AsignaturasWindow.xaml.cs">
       <DependentUpon>AsignaturasWindow.xaml</DependentUpon>
     </Compile>
@@ -150,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ProfesorMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="mainwindows\IndiceWindow.xaml.cs">
@@ -157,6 +176,9 @@
     </Compile>
     <Compile Include="mainwindows\ProfesoresWindow.xaml.cs">
       <DependentUpon>ProfesoresWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfesorMainWindow.xaml.cs">
+      <DependentUpon>ProfesorMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -188,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\images\refresh_black_27x27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="estudiantemainwindows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -89,12 +89,6 @@ namespace IndiceAcademico.mainwindows
 			}
 		}
 
-		private void Editar_Click(object sender, RoutedEventArgs e)
-		{
-			//Window editarEstudiante = new EditarEstudiante();
-			//editarEstudiante.Show();
-		}
-
 		private void ListEstudiantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			Estudiante estudiante = (Estudiante)ListEstudiantes.SelectedItem;

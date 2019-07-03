@@ -7,12 +7,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="419" d:DesignWidth="636">
     <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="124*"/>
+            <RowDefinition Height="295*"/>
+        </Grid.RowDefinitions>
         <Label Content="Indice Academico" Margin="37,24,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="22" FontFamily="MS Reference Sans Serif" Foreground="Black" HorizontalAlignment="Left" Width="217"/>
         <Rectangle Fill="#FFFF2D2D" Height="4" Margin="40,65,40,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <StackPanel x:Name="IndiceDisplay" HorizontalAlignment="Left" Height="300" Margin="40,109,0,0" VerticalAlignment="Top" Width="556" Background="#FFEEEEEE"/>
-
-
-
+        <ComboBox x:Name="ListEstudiantes" HorizontalAlignment="Left" Margin="477,22,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ListEstudiantes_SelectionChanged"/>
+        <Button x:Name="Calcular" Content="Calcular" HorizontalAlignment="Left" Margin="383,24,0,0" VerticalAlignment="Top" Width="76" Click="Calcular_Click"/>
+        <ListView x:Name="ListaIndice" HorizontalAlignment="Left" Height="200" Margin="41,95,0,0" VerticalAlignment="Top" Width="556" Grid.RowSpan="2" FontSize="13" Background="#FFE2E2E2" Foreground="#FF710404" BorderBrush="#FFCB9A9A">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Asignatura" DisplayMemberBinding="{Binding Asignatura}"/>
+                    <GridViewColumn Header="Creditos" DisplayMemberBinding="{Binding Creditos}"/>
+                    <GridViewColumn Header="Nota" DisplayMemberBinding="{Binding Nota}"/>
+                    <GridViewColumn Header="Valor de la Nota" DisplayMemberBinding="{Binding ValorNota}"/>
+                    <GridViewColumn Header="Puntos de Honor" DisplayMemberBinding="{Binding PuntosHonor}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Total de Puntos de Honor:" HorizontalAlignment="Left" Margin="41,176,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontStyle="Italic"/>
+        <Label Content="Total de Créditos:" HorizontalAlignment="Left" Margin="41,211,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontStyle="Italic"/>
+        <Label Content="Indice General:" HorizontalAlignment="Left" Margin="41,246,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontStyle="Italic"/>
+        <Label x:Name="TotalPuntosHonor" HorizontalAlignment="Right" Margin="0,176,40,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontWeight="DemiBold"/>
+        <Label x:Name="TotalCreditos" HorizontalAlignment="Right" Margin="0,211,40,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontWeight="DemiBold"/>
+        <Label x:Name="IndiceGeneral" HorizontalAlignment="Right" Margin="0,246,40,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontWeight="DemiBold"/>
     </Grid>
 
 </UserControl>

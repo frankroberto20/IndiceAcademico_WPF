@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IndiceAcademico.classes;
+using IndiceAcademico.mainwindows;
 using System.IO;
 
 namespace IndiceAcademico.editwindows
@@ -40,6 +41,8 @@ namespace IndiceAcademico.editwindows
 			AsignaturasWindow.asignaturasLST.Add(asignatura);
 			string[] line = { asignatura.ToFile() };
 			File.AppendAllLines(AsignaturasWindow.filepathAsi, line);
+
+			MessageBox.Show("Cambios guardados exitosamente!");
 
 			Close();
 		}

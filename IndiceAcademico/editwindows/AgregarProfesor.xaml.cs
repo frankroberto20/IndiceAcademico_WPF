@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using IndiceAcademico.classes;
+using IndiceAcademico.mainwindows;
 
 namespace IndiceAcademico.editwindows
 {
@@ -45,6 +46,11 @@ namespace IndiceAcademico.editwindows
 			ProfesoresWindow.profesoresLST.Add(profesor);
 			string[] line = { profesor.ToFile() };
 			File.AppendAllLines(ProfesoresWindow.filepathPro, line);
+
+			string[] usuario = { profesor.ToUser() };
+			File.AppendAllLines(LoginWindow.filepathUser, usuario);
+
+			MessageBox.Show("Cambios guardados exitosamente!");
 
 			this.Close();
 		}
