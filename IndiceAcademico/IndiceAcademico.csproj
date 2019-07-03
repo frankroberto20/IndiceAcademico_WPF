@@ -211,8 +211,6 @@
   <ItemGroup>
     <Resource Include="recursos\images\refresh_black_27x27.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="estudiantemainwindows\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

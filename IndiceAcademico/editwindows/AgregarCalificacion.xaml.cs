@@ -34,20 +34,38 @@ namespace IndiceAcademico.editwindows
 		{
 			Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
 
-			if (!File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
+			
+
+			if (inputNota.Text != "")
 			{
-				string[] lines = { "Nota,Asignatura" };
-				File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", lines);
+				if (!File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
+				{
+					string[] lines = { "Nota,Asignatura" };
+					File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", lines);
+				}
+
+				Calificacion calificacion = new Calificacion { Nota = Convert.ToDouble(inputNota.Text) > 100? 100 : Convert.ToDouble(inputNota.Text), Asignatura = (Asignatura)ListaAsignatura.SelectedItem };
+				estudiante.Calificaciones.Add(calificacion);
+				string[] line = { calificacion.ToFile() };
+				File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", line);
+
+				MessageBox.Show("Cambios guardados exitosamente!");
+
+				Close();
 			}
+			else
+			{
+				MessageBox.Show("Debe llenar todas las casillas");
+			}
+			
+		}
 
-			Calificacion calificacion = new Calificacion { Nota = Convert.ToDouble(inputNota.Text), Asignatura = (Asignatura)ListaAsignatura.SelectedItem};
-			estudiante.Calificaciones.Add(calificacion);
-			string[] line = { calificacion.ToFile() };
-			File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", line);
-
-			MessageBox.Show("Cambios guardados exitosamente!");
-
-			Close();
+		private void InputNota_PreviewTextInput(object sender, TextCompositionEventArgs e)
+		{
+			if ((e.Text) == null || !(e.Text).All(char.IsDigit))
+			{
+				e.Handled = true;
+			}
 		}
 	}
 }

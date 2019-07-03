@@ -24,7 +24,7 @@ namespace IndiceAcademico
 
 		public string ToUser()
 		{
-			return ("P" + "," + ID + "_" + Nombre.Replace(" ", "").ToLower() + "," + "4321");
+			return ("P" + "," + ID + "_" + Nombre.Replace(" ", "").ToLower() + "," + "1234");
 		}
 	}
 }

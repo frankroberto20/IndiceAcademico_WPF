@@ -16,6 +16,6 @@
         <Label Content="Clave" HorizontalAlignment="Left" Margin="114,106,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="inputClave" HorizontalAlignment="Left" Height="23" Margin="157,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Creditos" HorizontalAlignment="Left" Margin="98,132,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="inputCreditos" HorizontalAlignment="Left" Height="23" Margin="157,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="inputCreditos" HorizontalAlignment="Left" Height="23" Margin="157,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="InputCreditos_PreviewTextInput"/>
     </Grid>
 </Window>

@@ -44,7 +44,7 @@ namespace IndiceAcademico.mainwindows
 				{
 					totalCreditos += calificacion.Asignatura.Creditos;
 					totalHonor += indice.CalcularPuntosHonor(calificacion);
-					ListaIndice.Items.Add(new Indice { Asignatura = calificacion.Asignatura.ToString(), Creditos = calificacion.Asignatura.Creditos.ToString(), Nota = calificacion.Nota.ToString(), ValorNota = indice.ValorNota(calificacion).ToString(), PuntosHonor = indice.CalcularPuntosHonor(calificacion).ToString() });
+					ListaIndice.Items.Add(new Indice { Asignatura = calificacion.Asignatura.ToString(), Creditos = calificacion.Asignatura.Creditos.ToString(), Nota = indice.LetraNota(calificacion), ValorNota = indice.ValorNota(calificacion).ToString(), PuntosHonor = indice.CalcularPuntosHonor(calificacion).ToString() });
 				}
 
 				TotalPuntosHonor.Content = totalHonor;

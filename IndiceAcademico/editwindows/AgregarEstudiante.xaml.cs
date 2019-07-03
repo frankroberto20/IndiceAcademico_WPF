@@ -43,17 +43,25 @@ namespace IndiceAcademico
 				File.AppendAllLines(EstudiantesWindow.filepathEs, lines);
 			}
 
-			Estudiante estudiante = new Estudiante { ID = idCounter++, Nombre = inputNombre.Text, Carrera = inputCarrera.Text };
-			EstudiantesWindow.estudiantesLST.Add(estudiante);
-			string[] line = { estudiante.ToFile() };
-			File.AppendAllLines(EstudiantesWindow.filepathEs, line);
+			if(inputNombre.Text != "" && inputCarrera.Text != "")
+			{
+				Estudiante estudiante = new Estudiante { ID = idCounter++, Nombre = inputNombre.Text, Carrera = inputCarrera.Text };
+				EstudiantesWindow.estudiantesLST.Add(estudiante);
+				string[] line = { estudiante.ToFile() };
+				File.AppendAllLines(EstudiantesWindow.filepathEs, line);
 
-			string[] usuario = { estudiante.ToUser() };
-			File.AppendAllLines(LoginWindow.filepathUser, usuario);
+				string[] usuario = { estudiante.ToUser() };
+				File.AppendAllLines(LoginWindow.filepathUser, usuario);
 
-			MessageBox.Show("Cambios guardados exitosamente!");
+				MessageBox.Show("Cambios guardados exitosamente!");
 
-			this.Close();
+				this.Close();
+			}
+			else
+			{
+				MessageBox.Show("Debe llenar todas las casillas");
+			}
+			
 
 		}
 	}

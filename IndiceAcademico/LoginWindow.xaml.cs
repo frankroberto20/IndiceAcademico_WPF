@@ -36,23 +36,26 @@ namespace IndiceAcademico
 
 		private void Login_Click(object sender, RoutedEventArgs e)
 		{
+			bool userFound = false;
 			if (inputUsuario.Text != "" && inputContrasena.Password != "")
 			{
 				foreach (var line in File.ReadAllLines(filepathUser))
 				{
 					string[] data = line.Split(',');
+
 					if (data.Length == 3)
 					{
 						if (data[0] == "P" && inputUsuario.Text == data[1] && inputContrasena.Password == data[2])
 						{
-							Window window = new MainWindow();
+							userFound = true;
+							Window window = new ProfesorMainWindow();
 							window.Show();
-							window.
 							Close();
 						}
 
 						if (data[0] == "E" && inputUsuario.Text == data[1] && inputContrasena.Password == data[2])
 						{
+							userFound = true;
 							Window window = new EstudianteMainWindow();
 							window.Show();
 							Close();
@@ -60,13 +63,19 @@ namespace IndiceAcademico
 
 						if (data[0] == "A" && inputUsuario.Text == data[1] && inputContrasena.Password == data[2])
 						{
+							userFound = true;
 							Window window = new MainWindow();
 							window.Show();
 							Close();
 						}
+
 					}
+
 				}
 			}
+
+			if (!userFound)
+				MessageBox.Show("Usuario y contraseña invalidos");
 		}
 	}
 }

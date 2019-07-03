@@ -54,7 +54,7 @@ namespace IndiceAcademico.mainwindows
 					estudiante.Calificaciones.Remove((Calificacion)CalificacionesDataGrid.SelectedItem);
 				}
 
-				archivo.FilePath = estudiante.Nombre + "Calificaciones.csv";
+				archivo.FilePath = estudiante.Nombre + "-Calificaciones.csv";
 				archivo.OverWriteFile(estudiante.Calificaciones);
 
 				CalificacionesDataGrid.ItemsSource = null;

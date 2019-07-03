@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IndiceAcademico.classes;
+using IndiceAcademico.mainwindows;
+using System.IO;
 
 namespace IndiceAcademico
 {
@@ -22,6 +25,27 @@ namespace IndiceAcademico
 		public ProfesorMainWindow()
 		{
 			InitializeComponent();
+
+			ManejoArchivo archivoEstudiante = new ManejoArchivo(EstudiantesWindow.filepathEs);
+
+			if (File.Exists(EstudiantesWindow.filepathEs))
+				archivoEstudiante.RecuperarLista(EstudiantesWindow.estudiantesLST);
+
+			ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
+			if (File.Exists(AsignaturasWindow.filepathAsi))
+				archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
+
+			ManejoArchivo archivoCalificacion = new ManejoArchivo();
+
+			foreach (var estudiante in EstudiantesWindow.estudiantesLST)
+			{
+				archivoCalificacion.FilePath = estudiante.Nombre + "-Calificaciones.csv";
+				if (File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
+				{
+					archivoCalificacion.RecuperarLista(estudiante.Calificaciones);
+				}
+			}
+
 		}
 
 		private void Calificacion_Click(object sender, RoutedEventArgs e)

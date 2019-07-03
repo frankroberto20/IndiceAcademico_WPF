@@ -37,14 +37,30 @@ namespace IndiceAcademico.editwindows
 				File.AppendAllLines(AsignaturasWindow.filepathAsi, lines);
 			}
 
-			Asignatura asignatura = new Asignatura { Clave = inputClave.Text, Nombre = inputNombre.Text, Creditos = Convert.ToInt32(inputCreditos.Text) };
-			AsignaturasWindow.asignaturasLST.Add(asignatura);
-			string[] line = { asignatura.ToFile() };
-			File.AppendAllLines(AsignaturasWindow.filepathAsi, line);
+			if (inputNombre.Text != "" && inputClave.Text != "" && inputCreditos.Text != "")
+			{
+				Asignatura asignatura = new Asignatura { Clave = inputClave.Text, Nombre = inputNombre.Text, Creditos = Convert.ToInt32(inputCreditos.Text) };
+				AsignaturasWindow.asignaturasLST.Add(asignatura);
+				string[] line = { asignatura.ToFile() };
+				File.AppendAllLines(AsignaturasWindow.filepathAsi, line);
 
-			MessageBox.Show("Cambios guardados exitosamente!");
+				MessageBox.Show("Cambios guardados exitosamente!");
 
-			Close();
+				Close();
+			}
+			else
+			{
+				MessageBox.Show("Debe llenar todas las casillas");
+			}
+			
+		}
+
+		private void InputCreditos_PreviewTextInput(object sender, TextCompositionEventArgs e)
+		{
+			if ((e.Text) == null || !(e.Text).All(char.IsDigit))
+			{
+				e.Handled = true;
+			}
 		}
 	}
 }

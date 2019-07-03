@@ -42,17 +42,25 @@ namespace IndiceAcademico.editwindows
 				File.AppendAllLines(ProfesoresWindow.filepathPro, lines);
 			}
 
-			Profesor profesor = new Profesor { ID = idCounter++, Nombre = inputNombre.Text};
-			ProfesoresWindow.profesoresLST.Add(profesor);
-			string[] line = { profesor.ToFile() };
-			File.AppendAllLines(ProfesoresWindow.filepathPro, line);
+			if (inputNombre.Text != "")
+			{
+				Profesor profesor = new Profesor { ID = idCounter++, Nombre = inputNombre.Text };
+				ProfesoresWindow.profesoresLST.Add(profesor);
+				string[] line = { profesor.ToFile() };
+				File.AppendAllLines(ProfesoresWindow.filepathPro, line);
 
-			string[] usuario = { profesor.ToUser() };
-			File.AppendAllLines(LoginWindow.filepathUser, usuario);
+				string[] usuario = { profesor.ToUser() };
+				File.AppendAllLines(LoginWindow.filepathUser, usuario);
 
-			MessageBox.Show("Cambios guardados exitosamente!");
+				MessageBox.Show("Cambios guardados exitosamente!");
 
-			this.Close();
+				this.Close();
+			}
+			else
+			{
+				MessageBox.Show("Debe llenar todas las casillas");
+			}
+			
 		}
 	}
 }
