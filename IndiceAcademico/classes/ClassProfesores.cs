@@ -12,6 +12,8 @@ namespace IndiceAcademico
 
         public string Nombre { get; set; }
 
+        public List<Estudiante> Estudiantes;
+
 		public override string ToString()
 		{
 			return Nombre;
@@ -26,5 +28,10 @@ namespace IndiceAcademico
 		{
 			return ("P" + "," + ID + "_" + Nombre.Replace(" ", "").ToLower() + "," + "1234");
 		}
+
+        public Profesor()
+        {
+            Estudiantes = new List<Estudiante>();
+        }
 	}
 }

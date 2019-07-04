@@ -22,27 +22,37 @@ namespace IndiceAcademico
 	/// </summary>
 	public partial class EstudianteMainWindow : Window
 	{
-		public EstudianteMainWindow()
+
+        public EstudianteMainWindow(string user)
 		{
 			InitializeComponent();
 
-			ManejoArchivo archivoEstudiante = new ManejoArchivo(EstudiantesWindow.filepathEs);
-			archivoEstudiante.RecuperarLista(EstudiantesWindow.estudiantesLST);
+            
 
-			ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
+            List<Estudiante> tempLista = new List<Estudiante>();
+            ManejoArchivo archivo = new ManejoArchivo(EstudiantesWindow.filepathEs);
+            if (File.Exists(EstudiantesWindow.filepathEs))
+                archivo.RecuperarLista(tempLista);
+
+            Estudiante Estudiante = tempLista.Find(estudiante => estudiante.ToUser() == user);
+
+
+            EstudiantesWindow.estudiantesLST.Add(Estudiante);
+
 			if (File.Exists(AsignaturasWindow.filepathAsi))
-				archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
-
-			ManejoArchivo archivoCalificacion = new ManejoArchivo();
-
-			foreach (var estudiante in EstudiantesWindow.estudiantesLST)
+            {
+                ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
+                archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
+            }
+				
+			if (File.Exists(Estudiante.Nombre + "-Calificaciones.csv"))
 			{
-				archivoCalificacion.FilePath = estudiante.Nombre + "-Calificaciones.csv";
-				if (File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
-				{
-					archivoCalificacion.RecuperarLista(estudiante.Calificaciones);
-				}
+                ManejoArchivo archivoCalificacion = new ManejoArchivo();
+                archivoCalificacion.FilePath = Estudiante.Nombre + "-Calificaciones.csv";
+                archivoCalificacion.RecuperarLista(Estudiante.Calificaciones);
 			}
 		}
-	}
+
+
+    }
 }

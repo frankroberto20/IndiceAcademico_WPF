@@ -48,7 +48,7 @@ namespace IndiceAcademico
 						if (data[0] == "P" && inputUsuario.Text == data[1] && inputContrasena.Password == data[2])
 						{
 							userFound = true;
-							Window window = new ProfesorMainWindow();
+							ProfesorMainWindow window = new ProfesorMainWindow("P," + inputUsuario.Text + "," + inputContrasena.Password);
 							window.Show();
 							Close();
 						}
@@ -56,7 +56,7 @@ namespace IndiceAcademico
 						if (data[0] == "E" && inputUsuario.Text == data[1] && inputContrasena.Password == data[2])
 						{
 							userFound = true;
-							Window window = new EstudianteMainWindow();
+							EstudianteMainWindow window = new EstudianteMainWindow("E," + inputUsuario.Text + "," + inputContrasena.Password);
 							window.Show();
 							Close();
 						}

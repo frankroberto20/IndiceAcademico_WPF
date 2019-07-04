@@ -22,14 +22,20 @@ namespace IndiceAcademico
 	/// </summary>
 	public partial class ProfesorMainWindow : Window
 	{
-		public ProfesorMainWindow()
+		public ProfesorMainWindow(string user)
 		{
 			InitializeComponent();
 
-			ManejoArchivo archivoEstudiante = new ManejoArchivo(EstudiantesWindow.filepathEs);
+            List<Profesor> tempLista = new List<Profesor>();
+            ManejoArchivo archivo = new ManejoArchivo(ProfesoresWindow.filepathPro);
+            if (File.Exists(ProfesoresWindow.filepathPro))
+                archivo.RecuperarLista(tempLista);
 
-			if (File.Exists(EstudiantesWindow.filepathEs))
-				archivoEstudiante.RecuperarLista(EstudiantesWindow.estudiantesLST);
+            Profesor Profesor = tempLista.Find(estudiante => estudiante.ToUser() == user);
+
+            ManejoArchivo archivoEstudiante = new ManejoArchivo(EstudiantesWindow.filepathEs);
+
+            EstudiantesWindow.estudiantesLST = Profesor.Estudiantes;
 
 			ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
 			if (File.Exists(AsignaturasWindow.filepathAsi))

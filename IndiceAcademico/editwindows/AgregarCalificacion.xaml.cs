@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using IndiceAcademico.mainwindows;
+using IndiceAcademico.classes;
 
 namespace IndiceAcademico.editwindows
 {
@@ -44,18 +45,31 @@ namespace IndiceAcademico.editwindows
 					File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", lines);
 				}
 
-				Calificacion calificacion = new Calificacion { Nota = Convert.ToDouble(inputNota.Text) > 100? 100: Convert.ToDouble(inputNota.Text), Asignatura = (Asignatura)ListaAsignatura.SelectedItem };
-				estudiante.Calificaciones.Add(calificacion);
-				string[] line = { calificacion.ToFile() };
-				File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", line);
+                List<Calificacion> tempLista = new List<Calificacion>();
+                ManejoArchivo archivoCalificacion = new ManejoArchivo(estudiante.Nombre + "-Calificaciones.csv");
+                archivoCalificacion.RecuperarLista(tempLista);
 
-				MessageBox.Show("Cambios guardados exitosamente!");
+                if (tempLista.Where(calificacion => calificacion.Asignatura == (Asignatura)ListaAsignatura.SelectedItem).Count() == 0)
+                {
+                    Calificacion calificacion = new Calificacion { Nota = Convert.ToDouble(inputNota.Text) > 100 ? 100 : Convert.ToDouble(inputNota.Text), Asignatura = (Asignatura)ListaAsignatura.SelectedItem };
+                    estudiante.Calificaciones.Add(calificacion);
+                    string[] line = { calificacion.ToFile() };
+                    File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", line);
 
-				Close();
+                    MessageBox.Show("Cambios guardados exitosamente!", "Informacion guardada", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("La calificacion de esta asignatura ya ha sido registrada", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+				
 			}
 			else
 			{
-				MessageBox.Show("Debe llenar todas las casillas");
+                MessageBox.Show("Debe llenar todas las casillas", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning); 
 			}
 			
 		}
