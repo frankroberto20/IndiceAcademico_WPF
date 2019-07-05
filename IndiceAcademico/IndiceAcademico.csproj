@@ -107,6 +107,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="editwindows\EditarAsignaturasProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="editwindows\EditarEstudiantesProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="editwindows\EditarProfesor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +170,12 @@
     </Compile>
     <Compile Include="editwindows\EditarEstudiante.xaml.cs">
       <DependentUpon>EditarEstudiante.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="editwindows\EditarAsignaturasProfesor.xaml.cs">
+      <DependentUpon>EditarAsignaturasProfesor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="editwindows\EditarEstudiantesProfesor.xaml.cs">
+      <DependentUpon>EditarEstudiantesProfesor.xaml</DependentUpon>
     </Compile>
     <Compile Include="editwindows\EditarProfesor.xaml.cs">
       <DependentUpon>EditarProfesor.xaml</DependentUpon>

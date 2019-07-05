@@ -31,15 +31,17 @@ namespace IndiceAcademico
             if (File.Exists(ProfesoresWindow.filepathPro))
                 archivo.RecuperarLista(tempLista);
 
-            Profesor Profesor = tempLista.Find(estudiante => estudiante.ToUser() == user);
+            Profesor Profesor = tempLista.Find(profesor => profesor.ToUser() == user);
 
             ManejoArchivo archivoEstudiante = new ManejoArchivo(EstudiantesWindow.filepathEs);
-
             EstudiantesWindow.estudiantesLST = Profesor.Estudiantes;
+
 
 			ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
 			if (File.Exists(AsignaturasWindow.filepathAsi))
 				archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
+
+
 
 			ManejoArchivo archivoCalificacion = new ManejoArchivo();
 

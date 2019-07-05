@@ -12,6 +12,7 @@ namespace IndiceAcademico
 
         public string Nombre { get; set; }
 
+        public List<Asignatura> Asignaturas;
         public List<Estudiante> Estudiantes;
 
 		public override string ToString()
@@ -31,6 +32,7 @@ namespace IndiceAcademico
 
         public Profesor()
         {
+            Asignaturas = new List<Asignatura>();
             Estudiantes = new List<Estudiante>();
         }
 	}

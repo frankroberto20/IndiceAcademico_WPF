@@ -34,7 +34,16 @@ namespace IndiceAcademico.mainwindows
 			if (File.Exists(filepathPro))
 				archivo.RecuperarLista(profesoresLST);
 
-			ProfesoresDataGrid.ItemsSource = profesoresLST;
+            foreach (var profesor in profesoresLST)
+            {
+                archivo.FilePath = profesor.Nombre + "-Asignaturas.csv";
+                if (File.Exists(profesor.Nombre + "-Asignaturas.csv"))
+                {
+                    archivo.RecuperarLista(profesor.Asignaturas);
+                }
+            }
+
+            ProfesoresDataGrid.ItemsSource = profesoresLST;
 		}
 
 		private void ProfesoresDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

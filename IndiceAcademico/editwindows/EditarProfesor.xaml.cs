@@ -53,5 +53,17 @@ namespace IndiceAcademico.editwindows
 			Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
 			inputNombre.Text = profesor.Nombre;
 		}
-	}
+
+        private void AgregarEstudiante_Click(object sender, RoutedEventArgs e)
+        {
+            EditarEstudiantesProfesor editarEstudiantes = new EditarEstudiantesProfesor();
+            editarEstudiantes.Show();
+        }
+
+        private void AgregarAsignatura_Click(object sender, RoutedEventArgs e)
+        {
+            EditarAsignaturasProfesor editarAsignaturas = new EditarAsignaturasProfesor();
+            editarAsignaturas.Show();
+        }
+    }
 }
