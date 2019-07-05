@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:IndiceAcademico"
         xmlns:mainwindows="clr-namespace:IndiceAcademico.mainwindows" x:Class="IndiceAcademico.MainWindow"
         mc:Ignorable="d"
-        Title="Sistema de Registro INTEC" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Sistema de Registro INTEC" Height="450" Width="800" ResizeMode="NoResize" >
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
         <Button Content="Estudiantes" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Estudiantes_ButtonClick"/>
@@ -14,7 +14,15 @@
         <Button Content="Profesores" HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Profesores_ButtonClick"/>
         <Button Content="Calificaciones" HorizontalAlignment="Left" Margin="0,282,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Calificacion_ButtonClick"/>
         <Button Content="Indice" HorizontalAlignment="Left" Margin="0,347,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Indice_ButtonClick"/>
-        <Image Source="recursos/images/logo-intec-secundario.png" Margin="0,0,707,339"/>
+        <Image Source="recursos/images/logo-intec-secundario.png" Margin="54,0,653,339"/>
+        <Menu VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="40">
+            <Menu.Background>
+                <ImageBrush ImageSource="recursos/images/Settings-02-128.png"/>
+            </Menu.Background>
+            <MenuItem Header="" Height="40" Width="40">
+                <MenuItem x:Name="CerrarSesion" Header="Cerrar Sesion" Click="CerrarSesion_Click"/>
+            </MenuItem>
+        </Menu>
         <Canvas HorizontalAlignment="Left" Height="419" Margin="156,0,0,0" VerticalAlignment="Top" Width="636">
             <mainwindows:EstudiantesWindow x:Name="uscEstudiantes" Height="419" Width="636" Panel.ZIndex="1"/>
             <mainwindows:AsignaturasWindow x:Name="uscAsignaturas" Height="419" Width="636" Panel.ZIndex="0"/>

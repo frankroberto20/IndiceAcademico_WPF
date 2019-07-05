@@ -53,6 +53,20 @@ namespace IndiceAcademico
 			}
 		}
 
+        private void CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Estas seguro que quieres cerrar la sesion?", "Cerrar Sesion", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (result == MessageBoxResult.OK)
+            {
+                EstudiantesWindow.estudiantesLST.Clear();
+                ProfesoresWindow.profesoresLST.Clear();
+                AsignaturasWindow.asignaturasLST.Clear();
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                Close();
+            }
+
+        }
 
     }
 }

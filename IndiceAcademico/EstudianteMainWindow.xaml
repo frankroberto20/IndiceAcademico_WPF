@@ -8,7 +8,15 @@
         Title="EstudianteMainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
-        <Image Source="recursos/images/logo-intec-secundario.png" Margin="10,37,646,255"/>
+        <Image Source="recursos/images/logo-intec-secundario.png" Margin="18,31,638,261"/>
+        <Menu VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="40">
+            <Menu.Background>
+                <ImageBrush ImageSource="recursos/images/Settings-02-128.png"/>
+            </Menu.Background>
+            <MenuItem Header="" Height="40" Width="40">
+                <MenuItem x:Name="CerrarSesion" Header="Cerrar Sesion" Click="CerrarSesion_Click"/>
+            </MenuItem>
+        </Menu>
         <Canvas HorizontalAlignment="Left" Height="419" Margin="156,0,0,0" VerticalAlignment="Top" Width="636">
             <mainwindows:IndiceWindow x:Name="uscIndice" Width="636" Height="419" />
         </Canvas>

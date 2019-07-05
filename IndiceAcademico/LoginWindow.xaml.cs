@@ -64,7 +64,8 @@ namespace IndiceAcademico
 						if (data[0] == "A" && inputUsuario.Text == data[1] && inputContrasena.Password == data[2])
 						{
 							userFound = true;
-							Window window = new MainWindow();
+							MainWindow window = new MainWindow();
+                            window.DisableAgregarCalificacion();
 							window.Show();
 							Close();
 						}
@@ -77,5 +78,7 @@ namespace IndiceAcademico
 			if (!userFound)
 				MessageBox.Show("Usuario y contraseña invalidos");
 		}
+
+
 	}
 }

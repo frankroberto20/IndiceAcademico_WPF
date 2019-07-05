@@ -22,6 +22,11 @@ namespace IndiceAcademico
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+        public void DisableAgregarCalificacion()
+        {
+            uscCalificaciones.btnAgregar.Visibility = Visibility.Hidden;
+        }
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -71,5 +76,20 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscCalificaciones, 0);
 			Panel.SetZIndex(uscIndice, 1);
 		}
-	}
+        private void CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Estas seguro que quieres cerrar la sesion?", "Cerrar Sesion", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (result == MessageBoxResult.OK)
+            {
+                EstudiantesWindow.estudiantesLST.Clear();
+                ProfesoresWindow.profesoresLST.Clear();
+                AsignaturasWindow.asignaturasLST.Clear();
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                Close();
+            }
+
+        }
+
+    }
 }

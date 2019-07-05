@@ -10,7 +10,15 @@
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
         <Button Content="Calificaciones" HorizontalAlignment="Left" Margin="0,201,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Calificacion_Click"/>
         <Button Content="Indice" HorizontalAlignment="Left" Margin="0,266,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Indice_Click"/>
-        <Image Source="recursos/images/logo-intec-secundario.png" Margin="10,37,646,255"/>
+        <Image Source="recursos/images/logo-intec-secundario.png" Margin="18,31,638,261"/>
+        <Menu VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="40">
+            <Menu.Background>
+                <ImageBrush ImageSource="recursos/images/Settings-02-128.png"/>
+            </Menu.Background>
+            <MenuItem Header="" Height="40" Width="40">
+                <MenuItem x:Name="CerrarSesion" Header="Cerrar Sesion" Click="CerrarSesion_Click"/>
+            </MenuItem>
+        </Menu>
         <Canvas HorizontalAlignment="Left" Height="419" Margin="156,0,0,0" VerticalAlignment="Top" Width="636">
             <mainwindows:CalificacionWindow x:Name="uscCalificacion" Width="636" Height="419"/>
             <mainwindows:IndiceWindow x:Name="uscIndice" Width="636" Height="419" />

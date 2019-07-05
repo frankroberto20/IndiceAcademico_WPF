@@ -33,12 +33,13 @@ namespace IndiceAcademico
 
             Profesor Profesor = tempLista.Find(profesor => profesor.ToUser() == user);
 
-            ManejoArchivo archivoEstudiante = new ManejoArchivo(EstudiantesWindow.filepathEs);
-            EstudiantesWindow.estudiantesLST = Profesor.Estudiantes;
+            ManejoArchivo archivoEstudiante = new ManejoArchivo(Profesor.Nombre + "-Estudiantes.csv");
+            if (File.Exists(archivoEstudiante.FilePath))
+                archivoEstudiante.RecuperarLista(EstudiantesWindow.estudiantesLST);
 
 
-			ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
-			if (File.Exists(AsignaturasWindow.filepathAsi))
+			ManejoArchivo archivoAsignatura = new ManejoArchivo(Profesor.Nombre + "-Asignaturas.csv");
+			if (File.Exists(archivoAsignatura.FilePath))
 				archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
 
 
@@ -67,5 +68,20 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscCalificacion, 0);
 			Panel.SetZIndex(uscIndice, 1);
 		}
-	}
+
+        private void CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Estas seguro que quieres cerrar la sesion?", "Cerrar Sesion", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (result == MessageBoxResult.OK)
+            {
+                EstudiantesWindow.estudiantesLST.Clear();
+                ProfesoresWindow.profesoresLST.Clear();
+                AsignaturasWindow.asignaturasLST.Clear();
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                Close();
+            }
+                    
+        }
+    }
 }
