@@ -75,6 +75,24 @@ namespace IATest
 
             }
 
+            [TestMethod]
+            public void ClasificarHonor_Test()
+            {
+                Estudiante est = new Estudiante();
+                IndiceCalc index = new IndiceCalc();
+                Asignatura asignatura = new Asignatura() { Creditos = 4 };
+                Calificacion cal1 = new Calificacion() { Nota = 90, Asignatura = asignatura };
+                est.Calificaciones.Add(cal1);
+
+                string resultadoEsperado = "Summa Cum Laude";
+                string honor;
+
+                honor = index.ClasificarHonor(est);
+                Assert.AreEqual(honor, resultadoEsperado);
+
+            }
+
+
 
         }
     }

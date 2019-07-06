@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using IndiceAcademico.mainwindows;
 using IndiceAcademico.classes;
+using System.IO;
 
 namespace IndiceAcademico
 {
@@ -25,12 +25,29 @@ namespace IndiceAcademico
         public void DisableAgregarCalificacion()
         {
             uscCalificaciones.btnAgregar.Visibility = Visibility.Hidden;
+            uscCalificaciones.blockHandler = false;
         }
+
 
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
+
+            ManejoArchivo archivo = new ManejoArchivo();
+
+            foreach (var profesor in ProfesoresWindow.profesoresLST)
+            {
+                foreach (var estudiante in EstudiantesWindow.estudiantesLST)
+                {
+                    archivo.FilePath = Path.Combine(profesor.Nombre + "-RegistroCalificaciones", estudiante.Nombre + "-Calificaciones.csv");
+                    if (File.Exists(archivo.FilePath))
+                    {
+                        archivo.RecuperarLista(estudiante.Calificaciones);
+                    }
+                }
+            }
+
+        }
 
 		private void Estudiantes_ButtonClick(object sender, RoutedEventArgs e)
 		{
@@ -84,6 +101,7 @@ namespace IndiceAcademico
                 EstudiantesWindow.estudiantesLST.Clear();
                 ProfesoresWindow.profesoresLST.Clear();
                 AsignaturasWindow.asignaturasLST.Clear();
+                uscCalificaciones.blockHandler = true;
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.Show();
                 Close();
@@ -91,5 +109,11 @@ namespace IndiceAcademico
 
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Esta seguro que quiere salir de la aplicacion?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+                e.Cancel = true;
+        }
     }
 }

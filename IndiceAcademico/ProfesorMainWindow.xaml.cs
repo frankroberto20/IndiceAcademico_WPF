@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using IndiceAcademico.classes;
 using IndiceAcademico.mainwindows;
 using System.IO;
@@ -22,6 +21,8 @@ namespace IndiceAcademico
 	/// </summary>
 	public partial class ProfesorMainWindow : Window
 	{
+        public static Profesor Profesor;
+
 		public ProfesorMainWindow(string user)
 		{
 			InitializeComponent();
@@ -31,7 +32,7 @@ namespace IndiceAcademico
             if (File.Exists(ProfesoresWindow.filepathPro))
                 archivo.RecuperarLista(tempLista);
 
-            Profesor Profesor = tempLista.Find(profesor => profesor.ToUser() == user);
+            Profesor = tempLista.Find(profesor => profesor.ToUser() == user);
 
             ManejoArchivo archivoEstudiante = new ManejoArchivo(Profesor.Nombre + "-Estudiantes.csv");
             if (File.Exists(archivoEstudiante.FilePath))
@@ -48,8 +49,8 @@ namespace IndiceAcademico
 
 			foreach (var estudiante in EstudiantesWindow.estudiantesLST)
 			{
-				archivoCalificacion.FilePath = estudiante.Nombre + "-Calificaciones.csv";
-				if (File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
+				archivoCalificacion.FilePath = Path.Combine(Profesor.Nombre + "-RegistroCalificaciones", estudiante.Nombre + "-Calificaciones.csv");
+				if (File.Exists(archivoCalificacion.FilePath))
 				{
 					archivoCalificacion.RecuperarLista(estudiante.Calificaciones);
 				}

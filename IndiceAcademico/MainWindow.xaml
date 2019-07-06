@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:IndiceAcademico"
         xmlns:mainwindows="clr-namespace:IndiceAcademico.mainwindows" x:Class="IndiceAcademico.MainWindow"
         mc:Ignorable="d"
-        Title="Sistema de Registro INTEC" Height="450" Width="800" ResizeMode="NoResize" >
+        Title="Sistema de Registro INTEC" Height="450" Width="800" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
         <Button Content="Estudiantes" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Estudiantes_ButtonClick"/>

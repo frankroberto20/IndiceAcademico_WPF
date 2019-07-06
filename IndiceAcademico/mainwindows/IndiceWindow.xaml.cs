@@ -52,7 +52,7 @@ namespace IndiceAcademico.mainwindows
 
 				TotalPuntosHonor.Content = totalHonor;
 				TotalCreditos.Content = totalCreditos;
-				IndiceGeneral.Content = Math.Round(indice.CalcularIndice(estudiante), 2);
+				IndiceGeneral.Content = Math.Round(indice.CalcularIndice(estudiante), 2) + " *-" + indice.ClasificarHonor(estudiante);
 			}
 
 			

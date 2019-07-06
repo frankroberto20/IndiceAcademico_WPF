@@ -8,7 +8,7 @@
         Title="Agregar Estudiantes a Profesor" Height="350" Width="430" ResizeMode="NoResize">
     <Grid>
         <Label Content="Estudiantes" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,7,0,0"/>
-        <Rectangle Height="2" Width="200" Fill="Red" Margin="194, 35, 0, 0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Rectangle Height="2" Width="200" Fill="Red" Margin="194,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <ListView x:Name="GridEstudiantes" Height="260" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0, 15, 30, 0"/>
         <Label Content="Profesor:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,30"/>
         <ComboBox x:Name="ListaProfesores" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Width="100" Margin="40, 60" SelectionChanged="ListaProfesores_SelectionChanged"/>

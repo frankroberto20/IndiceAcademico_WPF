@@ -100,5 +100,26 @@ namespace IndiceAcademico
 
 			return totalPuntos / (double)totalCreditos;
 		}
-	}
+
+        public string ClasificarHonor(Estudiante estudiante)
+        {
+            string honor = "";
+
+            if (CalcularIndice(estudiante) <= 4 && CalcularIndice(estudiante) >= 3.8)
+                honor = "Summa Cum Laude";
+            if (CalcularIndice(estudiante) < 3.8 && CalcularIndice(estudiante) >= 3.5)
+                honor = "Magna Cum Laude";
+            if (CalcularIndice(estudiante) < 3.5 && CalcularIndice(estudiante) >= 3.2)
+                honor = "Cum Laude";
+
+            if (CalcularIndice(estudiante) < 3.2)
+                honor = "Sin honor";
+
+            foreach (var calificacion in estudiante.Calificaciones)
+                if (ValorNota(calificacion) == 0)
+                    honor = "Sin honor";
+
+            return honor;
+        }
+    }
 }

@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.IO;
 using IndiceAcademico.mainwindows;
 using IndiceAcademico.classes;
@@ -35,18 +34,22 @@ namespace IndiceAcademico.editwindows
 		{
 			Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
 
-			
-
 			if (inputNota.Text != "" && ListaEstudiantes.SelectedItem != null && ListaAsignatura.SelectedItem != null)
 			{
-				if (!File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
+                string fileName = estudiante.Nombre + "-Calificaciones.csv";
+                string directoryName = ProfesorMainWindow.Profesor.Nombre + "-RegistroCalificaciones";
+                string fileLocation = Path.Combine(directoryName, fileName);
+
+                if (!File.Exists(fileLocation) || !Directory.Exists(directoryName))
 				{
-					string[] lines = { "Nota,Asignatura" };
-					File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", lines);
+
+                    string[] lines = { "Nota,Asignatura" };
+                    Directory.CreateDirectory(directoryName);
+                    File.AppendAllLines(fileLocation, lines);
 				}
 
                 List<Calificacion> tempLista = new List<Calificacion>();
-                ManejoArchivo archivoCalificacion = new ManejoArchivo(estudiante.Nombre + "-Calificaciones.csv");
+                ManejoArchivo archivoCalificacion = new ManejoArchivo(fileLocation);
                 archivoCalificacion.RecuperarLista(tempLista);
 
                 if (tempLista.Where(calificacion => calificacion.Asignatura == (Asignatura)ListaAsignatura.SelectedItem).Count() == 0)
@@ -54,7 +57,7 @@ namespace IndiceAcademico.editwindows
                     Calificacion calificacion = new Calificacion { Nota = Convert.ToDouble(inputNota.Text) > 100 ? 100 : Convert.ToDouble(inputNota.Text), Asignatura = (Asignatura)ListaAsignatura.SelectedItem };
                     estudiante.Calificaciones.Add(calificacion);
                     string[] line = { calificacion.ToFile() };
-                    File.AppendAllLines(estudiante.Nombre + "-Calificaciones.csv", line);
+                    File.AppendAllLines(fileLocation, line);
 
                     MessageBox.Show("Cambios guardados exitosamente!", "Informacion guardada", MessageBoxButton.OK, MessageBoxImage.Information);
 

@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using IndiceAcademico.classes;
 using IndiceAcademico.editwindows;
 using System.IO;
@@ -24,44 +23,40 @@ namespace IndiceAcademico.mainwindows
 	public partial class CalificacionWindow : UserControl
 	{
 		ManejoArchivo archivo = new ManejoArchivo();
+        public bool blockHandler = true;
 
 		public CalificacionWindow()
 		{
 			InitializeComponent();
-
-			foreach(var estudiante in EstudiantesWindow.estudiantesLST)
-			{
-				archivo.FilePath = estudiante.Nombre + "-Calificaciones.csv";
-				if (File.Exists(estudiante.Nombre + "-Calificaciones.csv"))
-				{
-					archivo.RecuperarLista(estudiante.Calificaciones);
-				}
-			}
-
+			
 			ListEstudiantes.ItemsSource = EstudiantesWindow.estudiantesLST;
 		}
 
 		private void CalificacionesDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
-			if (ListEstudiantes.SelectedItem != null)
-			{
-				Estudiante estudiante = (Estudiante)ListEstudiantes.SelectedItem;
+            if (blockHandler)
+            {
 
-				MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
 
-				if (result == MessageBoxResult.Yes)
-				{
-					estudiante.Calificaciones.Remove((Calificacion)CalificacionesDataGrid.SelectedItem);
-				}
+                if (ListEstudiantes.SelectedItem != null)
+                {
+                    Estudiante estudiante = (Estudiante)ListEstudiantes.SelectedItem;
 
-				archivo.FilePath = estudiante.Nombre + "-Calificaciones.csv";
-				archivo.OverWriteFile(estudiante.Calificaciones);
+                    MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
 
-				CalificacionesDataGrid.ItemsSource = null;
-				CalificacionesDataGrid.ItemsSource = estudiante.Calificaciones;
-			}
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        estudiante.Calificaciones.Remove((Calificacion)CalificacionesDataGrid.SelectedItem);
+                    }
 
-			
+                    archivo.FilePath = Path.Combine(ProfesorMainWindow.Profesor.Nombre + "-RegistroCalificaciones", estudiante.Nombre + "-Calificaciones.csv");
+                    archivo.OverWriteFile(estudiante.Calificaciones);
+
+                    CalificacionesDataGrid.ItemsSource = null;
+                    CalificacionesDataGrid.ItemsSource = estudiante.Calificaciones;
+                }
+
+            }
 		}
 
 		private void CalificacionesDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -95,5 +90,6 @@ namespace IndiceAcademico.mainwindows
 			CalificacionesDataGrid.ItemsSource = null;
 			CalificacionesDataGrid.ItemsSource = estudiante.Calificaciones;
 		}
+
 	}
 }

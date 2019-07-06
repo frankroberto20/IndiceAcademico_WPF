@@ -8,6 +8,7 @@ namespace IndiceAcademico
 {
     public class Asignatura
     {
+        public bool IsInList = false;
         public string Clave { get; set; }
 
         public string Nombre { get; set; }

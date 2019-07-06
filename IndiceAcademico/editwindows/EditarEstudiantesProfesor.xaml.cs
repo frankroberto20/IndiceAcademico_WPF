@@ -36,11 +36,18 @@ namespace IndiceAcademico.editwindows
                 Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
                 Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
 
-                if (profesor.Estudiantes.Where(est => est == estudiante).Count() == 0)
+                if (profesor.Estudiantes.Where(est => est.ID == estudiante.ID).Count() == 0)
                 {
                     profesor.Estudiantes.Add(estudiante);
                     ManejoArchivo archivo = new ManejoArchivo(profesor.Nombre + "-Estudiantes.csv");
                     archivo.OverWriteFile(profesor.Estudiantes);
+
+                    GridEstudiantes.ItemsSource = null;
+                    GridEstudiantes.ItemsSource = profesor.Estudiantes;
+                }
+                else
+                {
+                    MessageBox.Show("Este estudiante ya ha sido registrado", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -52,7 +59,8 @@ namespace IndiceAcademico.editwindows
         private void ListaProfesores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
-            GridEstudiantes.ItemsSource = profesor.Asignaturas;
+            GridEstudiantes.ItemsSource = null;
+            GridEstudiantes.ItemsSource = profesor.Estudiantes;
         }
     }
 }

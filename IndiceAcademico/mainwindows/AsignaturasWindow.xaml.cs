@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using IndiceAcademico.editwindows;
 using IndiceAcademico.classes;
 using System.IO;
@@ -27,6 +26,7 @@ namespace IndiceAcademico.mainwindows
 		public static List<Asignatura> asignaturasLST = new List<Asignatura>();
 		public static string filepathAsi = "Asignaturas.csv";
 		ManejoArchivo archivo = new ManejoArchivo(filepathAsi);
+
 
 		public AsignaturasWindow()
 		{

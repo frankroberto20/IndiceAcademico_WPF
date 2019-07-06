@@ -46,7 +46,7 @@ namespace IndiceAcademico.editwindows
 				asignatura.Nombre = inputNombre.Text;
 				asignatura.Creditos = Convert.ToInt32(inputCreditos.Text);
 
-				archivo.OverWriteFile(EstudiantesWindow.estudiantesLST);
+				archivo.OverWriteFile(AsignaturasWindow.asignaturasLST);
 
 				MessageBox.Show("Cambios guardados exitosamente!");
 				Close();
