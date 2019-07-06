@@ -22,10 +22,13 @@ namespace IndiceAcademico
 	public partial class ProfesorMainWindow : Window
 	{
         public static Profesor Profesor;
+        bool closingBlock;
 
 		public ProfesorMainWindow(string user)
 		{
 			InitializeComponent();
+
+            closingBlock = true;
 
             List<Profesor> tempLista = new List<Profesor>();
             ManejoArchivo archivo = new ManejoArchivo(ProfesoresWindow.filepathPro);
@@ -75,6 +78,7 @@ namespace IndiceAcademico
             MessageBoxResult result = MessageBox.Show("Estas seguro que quieres cerrar la sesion?", "Cerrar Sesion", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
+                closingBlock = false;
                 EstudiantesWindow.estudiantesLST.Clear();
                 ProfesoresWindow.profesoresLST.Clear();
                 AsignaturasWindow.asignaturasLST.Clear();
@@ -83,6 +87,16 @@ namespace IndiceAcademico
                 Close();
             }
                     
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (closingBlock)
+            {
+                MessageBoxResult result = MessageBox.Show("Esta seguro que quiere salir de la aplicacion?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                    e.Cancel = true;
+            }
         }
     }
 }

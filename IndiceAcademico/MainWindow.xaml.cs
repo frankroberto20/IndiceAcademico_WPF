@@ -28,10 +28,13 @@ namespace IndiceAcademico
             uscCalificaciones.blockHandler = false;
         }
 
+        bool closingBlock;
 
 		public MainWindow()
 		{
 			InitializeComponent();
+
+            closingBlock = true;
 
             ManejoArchivo archivo = new ManejoArchivo();
 
@@ -95,9 +98,11 @@ namespace IndiceAcademico
 		}
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
+            
             MessageBoxResult result = MessageBox.Show("Estas seguro que quieres cerrar la sesion?", "Cerrar Sesion", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
+                closingBlock = false;
                 EstudiantesWindow.estudiantesLST.Clear();
                 ProfesoresWindow.profesoresLST.Clear();
                 AsignaturasWindow.asignaturasLST.Clear();
@@ -111,9 +116,12 @@ namespace IndiceAcademico
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Esta seguro que quiere salir de la aplicacion?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.No)
-                e.Cancel = true;
+            if (closingBlock)
+            {
+                MessageBoxResult result = MessageBox.Show("Esta seguro que quiere salir de la aplicacion?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                    e.Cancel = true;
+            }
         }
     }
 }

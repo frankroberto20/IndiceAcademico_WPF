@@ -52,7 +52,6 @@ namespace IndiceAcademico.editwindows
                         MessageBox.Show("Esta asignatura ya pertenece a otro profesor", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     
-
                 }
 
                 else
