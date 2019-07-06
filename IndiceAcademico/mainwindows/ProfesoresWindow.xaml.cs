@@ -41,6 +41,15 @@ namespace IndiceAcademico.mainwindows
                 {
                     archivo.RecuperarLista(profesor.Asignaturas);
                 }
+
+                foreach (var asignatura in profesor.Asignaturas)
+                {
+                    Asignatura tempAsignatura = AsignaturasWindow.asignaturasLST.Find(asi => asi.Clave == asignatura.Clave);
+                    if (tempAsignatura != null)
+                    {
+                        tempAsignatura.IsInList = true;
+                    }
+                }
             }
 
             ProfesoresDataGrid.ItemsSource = profesoresLST;

@@ -38,12 +38,20 @@ namespace IndiceAcademico.editwindows
 
                 if (profesor.Asignaturas.Where(asi => asi.Clave == asignatura.Clave).Count() == 0)
                 {
-                    profesor.Asignaturas.Add(asignatura);
-                    ManejoArchivo archivo = new ManejoArchivo(profesor.Nombre + "-Asignaturas.csv");
-                    archivo.OverWriteFile(profesor.Asignaturas);
+                    if (!asignatura.IsInList)
+                    {
+                        profesor.Asignaturas.Add(asignatura);
+                        ManejoArchivo archivo = new ManejoArchivo(profesor.Nombre + "-Asignaturas.csv");
+                        archivo.OverWriteFile(profesor.Asignaturas);
 
-                    GridAsignaturas.ItemsSource = null;
-                    GridAsignaturas.ItemsSource = profesor.Asignaturas;
+                        GridAsignaturas.ItemsSource = null;
+                        GridAsignaturas.ItemsSource = profesor.Asignaturas;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Esta asignatura ya pertenece a otro profesor", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    
 
                 }
 
