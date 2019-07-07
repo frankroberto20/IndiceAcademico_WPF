@@ -26,16 +26,11 @@ namespace IndiceAcademico.mainwindows
 
 		public static List<Estudiante> estudiantesLST = new List<Estudiante>();
 		public static string filepathEs = "Estudiantes.csv";
-		ManejoArchivo archivo = new ManejoArchivo(filepathEs);
+        ManejoArchivo archivo = new ManejoArchivo();
 
 		public EstudiantesWindow()
 		{
 			InitializeComponent();
-
-			
-
-			if (File.Exists(filepathEs))
-				archivo.RecuperarLista(estudiantesLST);
 
 			EstudiantesDataGrid.ItemsSource = estudiantesLST;
 		}
@@ -49,7 +44,6 @@ namespace IndiceAcademico.mainwindows
 			if (result == MessageBoxResult.Yes)
 			{
 				estudiantesLST.Remove(estudiante);
-				File.Delete(estudiante.Nombre + "-Calificaciones.csv");
 			}
 
 			archivo.OverWriteFile(estudiantesLST);
@@ -71,7 +65,7 @@ namespace IndiceAcademico.mainwindows
 		private void Agregar_Click(object sender, RoutedEventArgs e)
 		{
 			Window agregarEstudiante = new AgregarEstudiante();
-			agregarEstudiante.Show();
+			agregarEstudiante.ShowDialog();
 		}
 
 		private void Actualizar_Click(object sender, RoutedEventArgs e)
@@ -83,7 +77,7 @@ namespace IndiceAcademico.mainwindows
 		private void Editar_Click(object sender, RoutedEventArgs e)
 		{
 			Window editarEstudiante = new EditarEstudiante();
-			editarEstudiante.Show();
+			editarEstudiante.ShowDialog();
 		}
 	}
 }

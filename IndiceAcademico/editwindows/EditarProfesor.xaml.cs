@@ -57,13 +57,13 @@ namespace IndiceAcademico.editwindows
         private void AgregarEstudiante_Click(object sender, RoutedEventArgs e)
         {
             EditarEstudiantesProfesor editarEstudiantes = new EditarEstudiantesProfesor();
-            editarEstudiantes.Show();
+            editarEstudiantes.ShowDialog();
         }
 
         private void AgregarAsignatura_Click(object sender, RoutedEventArgs e)
         {
             EditarAsignaturasProfesor editarAsignaturas = new EditarAsignaturasProfesor();
-            editarAsignaturas.Show();
+            editarAsignaturas.ShowDialog();
         }
     }
 }

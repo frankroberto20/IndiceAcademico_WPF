@@ -23,17 +23,17 @@ namespace IndiceAcademico.mainwindows
 	public partial class AsignaturasWindow : UserControl
 	{
 
+        public bool blockHandler = true;
+
 		public static List<Asignatura> asignaturasLST = new List<Asignatura>();
 		public static string filepathAsi = "Asignaturas.csv";
-		ManejoArchivo archivo = new ManejoArchivo(filepathAsi);
+        ManejoArchivo archivo = new ManejoArchivo();
 
-
-		public AsignaturasWindow()
+        public AsignaturasWindow()
 		{
 			InitializeComponent();
 
-			if (File.Exists(filepathAsi))
-				archivo.RecuperarLista(asignaturasLST);
+			
 
 			AsignaturaDataGrid.ItemsSource = asignaturasLST;
 		}
@@ -50,23 +50,26 @@ namespace IndiceAcademico.mainwindows
 
 		private void AsignaturaDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
-			MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
+            if (blockHandler)
+            {
+                MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
 
-			if (result == MessageBoxResult.Yes)
-			{
-				asignaturasLST.Remove((Asignatura)AsignaturaDataGrid.SelectedItem);
-			}
+                if (result == MessageBoxResult.Yes)
+                {
+                    asignaturasLST.Remove((Asignatura)AsignaturaDataGrid.SelectedItem);
+                }
 
-			archivo.OverWriteFile(asignaturasLST);
+                archivo.OverWriteFile(asignaturasLST);
 
-			AsignaturaDataGrid.ItemsSource = null;
-			AsignaturaDataGrid.ItemsSource = asignaturasLST;
+                AsignaturaDataGrid.ItemsSource = null;
+                AsignaturaDataGrid.ItemsSource = asignaturasLST;
+            }
 		}
 
 		private void Agregar_Click(object sender, RoutedEventArgs e)
 		{
 			Window agregarAsignatura = new AgregarAsignatura();
-			agregarAsignatura.Show();
+			agregarAsignatura.ShowDialog();
 			
 		}
 
@@ -79,7 +82,7 @@ namespace IndiceAcademico.mainwindows
 		private void Editar_Click(object sender, RoutedEventArgs e)
 		{
 			Window editarAsignatura = new EditarAsignatura();
-			editarAsignatura.Show();
+			editarAsignatura.ShowDialog();
 		}
 
         private void AsignaturaDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

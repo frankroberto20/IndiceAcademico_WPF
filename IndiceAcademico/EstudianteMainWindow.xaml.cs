@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using IndiceAcademico.classes;
 using IndiceAcademico.mainwindows;
 using System.IO;
@@ -38,22 +37,28 @@ namespace IndiceAcademico
 
             Estudiante Estudiante = tempLista.Find(estudiante => estudiante.ToUser() == user);
 
-
             EstudiantesWindow.estudiantesLST.Add(Estudiante);
+
+            ManejoArchivo archivoProfesores = new ManejoArchivo(ProfesoresWindow.filepathPro);
+            if (File.Exists(archivoProfesores.FilePath))
+                archivoProfesores.RecuperarLista(ProfesoresWindow.profesoresLST);
 
 			if (File.Exists(AsignaturasWindow.filepathAsi))
             {
                 ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
                 archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
             }
-				
-			if (File.Exists(Estudiante.Nombre + "-Calificaciones.csv"))
-			{
-                ManejoArchivo archivoCalificacion = new ManejoArchivo();
-                archivoCalificacion.FilePath = Estudiante.Nombre + "-Calificaciones.csv";
-                archivoCalificacion.RecuperarLista(Estudiante.Calificaciones);
-			}
-		}
+
+            ManejoArchivo archivoCalificaciones = new ManejoArchivo();
+            foreach (var profesor in ProfesoresWindow.profesoresLST)
+            {
+                archivoCalificaciones.FilePath = Path.Combine(profesor.Nombre + "-RegistroCalificaciones", Estudiante.Nombre + "-Calificaciones.csv");
+                if (File.Exists(archivoCalificaciones.FilePath))
+                {
+                    archivoCalificaciones.RecuperarLista(Estudiante.Calificaciones);
+                }
+            }
+        }
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {

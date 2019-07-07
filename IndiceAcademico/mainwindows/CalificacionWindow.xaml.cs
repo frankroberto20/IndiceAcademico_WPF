@@ -70,7 +70,7 @@ namespace IndiceAcademico.mainwindows
 		private void Agregar_Click(object sender, RoutedEventArgs e)
 		{
 			Window agregarCalificacion = new AgregarCalificacion();
-			agregarCalificacion.Show();
+			agregarCalificacion.ShowDialog();
 		}
 
 		private void Actualizar_Click(object sender, RoutedEventArgs e)

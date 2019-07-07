@@ -24,7 +24,14 @@ namespace IndiceAcademico
         public static Profesor Profesor;
         bool closingBlock;
 
-		public ProfesorMainWindow(string user)
+        public void DisableAgregarAsignatura()
+        {
+            uscAsignaturas.btnAgregar.Visibility = Visibility.Hidden;
+            uscAsignaturas.btnEditar.Visibility = Visibility.Hidden;
+            uscAsignaturas.blockHandler = false;
+        }
+
+        public ProfesorMainWindow(string user)
 		{
 			InitializeComponent();
 
@@ -65,13 +72,22 @@ namespace IndiceAcademico
 		{
 			Panel.SetZIndex(uscCalificacion, 1);
 			Panel.SetZIndex(uscIndice, 0);
+            Panel.SetZIndex(uscAsignaturas, 0);
 		}
 
 		private void Indice_Click(object sender, RoutedEventArgs e)
 		{
 			Panel.SetZIndex(uscCalificacion, 0);
 			Panel.SetZIndex(uscIndice, 1);
-		}
+            Panel.SetZIndex(uscAsignaturas, 0);
+        }
+
+        private void Asignaturas_Click(object sender, RoutedEventArgs e)
+        {
+            Panel.SetZIndex(uscCalificacion, 0);
+            Panel.SetZIndex(uscIndice, 0);
+            Panel.SetZIndex(uscAsignaturas, 1);
+        }
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
@@ -98,5 +114,6 @@ namespace IndiceAcademico
                     e.Cancel = true;
             }
         }
+
     }
 }

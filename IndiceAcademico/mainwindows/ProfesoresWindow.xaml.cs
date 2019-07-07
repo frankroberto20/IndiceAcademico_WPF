@@ -31,9 +31,7 @@ namespace IndiceAcademico.mainwindows
 		{
 			InitializeComponent();
 
-			if (File.Exists(filepathPro))
-				archivo.RecuperarLista(profesoresLST);
-
+            //Recuperar asignaturas de cada profesor
             foreach (var profesor in profesoresLST)
             {
                 archivo.FilePath = profesor.Nombre + "-Asignaturas.csv";
@@ -81,7 +79,7 @@ namespace IndiceAcademico.mainwindows
 		private void Agregar_Click(object sender, RoutedEventArgs e)
 		{
 			Window agregarProfesor = new AgregarProfesor();
-			agregarProfesor.Show();
+			agregarProfesor.ShowDialog();
 		}
 
 		private void Actualizar_Click(object sender, RoutedEventArgs e)
@@ -93,7 +91,7 @@ namespace IndiceAcademico.mainwindows
 		private void Editar_Click(object sender, RoutedEventArgs e)
 		{
 			Window editarProfesor = new EditarProfesor();
-			editarProfesor.Show();
+			editarProfesor.ShowDialog();
 		}
 	}
 }

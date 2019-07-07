@@ -32,7 +32,7 @@
         <Label x:Name="TotalPuntosHonor" HorizontalAlignment="Right" Margin="0,176,40,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontWeight="DemiBold"/>
         <Label x:Name="TotalCreditos" HorizontalAlignment="Right" Margin="0,211,40,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontWeight="DemiBold"/>
         <Label x:Name="IndiceGeneral" HorizontalAlignment="Right" Margin="0,246,40,0" Grid.Row="1" VerticalAlignment="Top" FontSize="15" FontWeight="DemiBold"/>
-        <Button Content="Ranking" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="303,24,0,0" Height="20" Click="Button_Click"/>
+        <Button Content="Ranking" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="287,24,0,0" Height="20" Click="Button_Click"/>
     </Grid>
 
 </UserControl>

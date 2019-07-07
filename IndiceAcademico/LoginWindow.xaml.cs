@@ -49,6 +49,7 @@ namespace IndiceAcademico
 						{
 							userFound = true;
 							ProfesorMainWindow window = new ProfesorMainWindow("P," + inputUsuario.Text + "," + inputContrasena.Password);
+                            window.DisableAgregarAsignatura();
 							window.Show();
 							Close();
 						}

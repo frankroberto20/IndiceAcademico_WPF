@@ -36,16 +36,31 @@ namespace IndiceAcademico
 
             closingBlock = true;
 
-            ManejoArchivo archivo = new ManejoArchivo();
+            //Recuperar estudiantes
+            ManejoArchivo archivoEstudiantes = new ManejoArchivo(EstudiantesWindow.filepathEs);
+            if (File.Exists(EstudiantesWindow.filepathEs))
+                archivoEstudiantes.RecuperarLista(EstudiantesWindow.estudiantesLST);
 
+            //Recuperar asignaturas
+            ManejoArchivo archivoAsignatura = new ManejoArchivo(AsignaturasWindow.filepathAsi);
+            if (File.Exists(AsignaturasWindow.filepathAsi))
+                archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
+
+            //Recuperar profesores
+            ManejoArchivo archivoProfesores = new ManejoArchivo(ProfesoresWindow.filepathPro);
+            if (File.Exists(archivoProfesores.FilePath))
+                archivoProfesores.RecuperarLista(ProfesoresWindow.profesoresLST);
+
+            //Recuperar calificaciones de cada estudiante
+            ManejoArchivo archivoCalificaciones = new ManejoArchivo();
             foreach (var profesor in ProfesoresWindow.profesoresLST)
             {
                 foreach (var estudiante in EstudiantesWindow.estudiantesLST)
                 {
-                    archivo.FilePath = Path.Combine(profesor.Nombre + "-RegistroCalificaciones", estudiante.Nombre + "-Calificaciones.csv");
-                    if (File.Exists(archivo.FilePath))
+                    archivoCalificaciones.FilePath = Path.Combine(profesor.Nombre + "-RegistroCalificaciones", estudiante.Nombre + "-Calificaciones.csv");
+                    if (File.Exists(archivoCalificaciones.FilePath))
                     {
-                        archivo.RecuperarLista(estudiante.Calificaciones);
+                        archivoCalificaciones.RecuperarLista(estudiante.Calificaciones);
                     }
                 }
             }
