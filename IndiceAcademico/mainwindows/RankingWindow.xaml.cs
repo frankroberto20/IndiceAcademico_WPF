@@ -51,7 +51,7 @@ namespace IndiceAcademico.mainwindows
             {
                 IndiceCalc indice = new IndiceCalc();
 
-                double IndiceGeneral = indice.CalcularIndice(estudiante);
+                double IndiceGeneral = Math.Round(indice.CalcularIndice(estudiante), 2);
 
                 indicesLST.Add(new IndiceA()
                 {
