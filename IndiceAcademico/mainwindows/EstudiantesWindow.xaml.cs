@@ -28,6 +28,12 @@ namespace IndiceAcademico.mainwindows
 		public static string filepathEs = "Estudiantes.csv";
         ManejoArchivo archivo = new ManejoArchivo();
 
+        public void ReloadDataGrid()
+        {
+            EstudiantesDataGrid.ItemsSource = null;
+            EstudiantesDataGrid.ItemsSource = estudiantesLST;
+        }
+
 		public EstudiantesWindow()
 		{
 			InitializeComponent();
@@ -79,5 +85,11 @@ namespace IndiceAcademico.mainwindows
 			Window editarEstudiante = new EditarEstudiante();
 			editarEstudiante.ShowDialog();
 		}
-	}
+
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            EstudiantesDataGrid.ItemsSource = null;
+            EstudiantesDataGrid.ItemsSource = estudiantesLST;
+        }
+    }
 }

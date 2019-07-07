@@ -85,9 +85,10 @@ namespace IndiceAcademico.mainwindows
 			editarAsignatura.ShowDialog();
 		}
 
-        private void AsignaturaDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
-
+            AsignaturaDataGrid.ItemsSource = null;
+            AsignaturaDataGrid.ItemsSource = asignaturasLST;
         }
     }
 

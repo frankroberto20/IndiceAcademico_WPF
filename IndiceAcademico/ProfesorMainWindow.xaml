@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico"
         mc:Ignorable="d"
-        Title="ProfesorMainWindow" Height="450" Width="800" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Profesores INTEC" Height="450" Width="800" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
         <Button Content="Calificaciones" HorizontalAlignment="Left" Margin="0,251,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Calificacion_Click"/>

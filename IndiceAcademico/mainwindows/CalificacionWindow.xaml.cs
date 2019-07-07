@@ -91,5 +91,15 @@ namespace IndiceAcademico.mainwindows
 			CalificacionesDataGrid.ItemsSource = estudiante.Calificaciones;
 		}
 
-	}
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (ListEstudiantes.SelectedItem != null)
+            {
+                Estudiante estudiante = (Estudiante)ListEstudiantes.SelectedItem;
+                CalificacionesDataGrid.ItemsSource = null;
+                CalificacionesDataGrid.ItemsSource = estudiante.Calificaciones;
+            }
+            
+        }
+    }
 }

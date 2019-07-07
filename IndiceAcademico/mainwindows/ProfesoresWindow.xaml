@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IndiceAcademico.mainwindows"
              mc:Ignorable="d" 
-             d:DesignHeight="419" d:DesignWidth="636">
+             d:DesignHeight="419" d:DesignWidth="636" MouseEnter="UserControl_MouseEnter">
     <Grid Background="White">
         <Label Content="Profesores" Margin="37,24,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="22" FontFamily="MS Reference Sans Serif" Foreground="Black" HorizontalAlignment="Left" Width="138"/>
         <Rectangle Fill="#FFFF2D2D" Height="4" Margin="40,65,40,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">

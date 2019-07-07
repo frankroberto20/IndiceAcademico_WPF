@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico.editwindows"
         mc:Ignorable="d"
-        Title="Agregar Estudiantes a Profesor" Height="350" Width="430" ResizeMode="NoResize">
+        Title="Agregar Estudiantes a Profesor" Height="350" Width="430" ResizeMode="NoResize" WindowStartupLocation="Manual" Top="300" Left="400">
     <Grid>
         <Label Content="Estudiantes" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="194,7,0,0"/>
         <Rectangle Height="2" Width="200" Fill="Red" Margin="194,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>

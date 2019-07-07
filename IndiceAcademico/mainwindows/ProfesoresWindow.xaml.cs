@@ -93,5 +93,11 @@ namespace IndiceAcademico.mainwindows
 			Window editarProfesor = new EditarProfesor();
 			editarProfesor.ShowDialog();
 		}
-	}
+
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ProfesoresDataGrid.ItemsSource = null;
+            ProfesoresDataGrid.ItemsSource = profesoresLST;
+        }
+    }
 }
