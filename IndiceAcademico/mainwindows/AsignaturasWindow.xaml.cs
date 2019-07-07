@@ -81,6 +81,11 @@ namespace IndiceAcademico.mainwindows
 			Window editarAsignatura = new EditarAsignatura();
 			editarAsignatura.Show();
 		}
-	}
+
+        private void AsignaturaDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
 
 }

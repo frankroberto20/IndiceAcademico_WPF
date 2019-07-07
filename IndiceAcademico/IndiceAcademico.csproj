@@ -213,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="mainwindows\RankingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProfesorMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -224,6 +228,9 @@
     </Compile>
     <Compile Include="mainwindows\ProfesoresWindow.xaml.cs">
       <DependentUpon>ProfesoresWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mainwindows\RankingWindow.xaml.cs">
+      <DependentUpon>RankingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProfesorMainWindow.xaml.cs">
       <DependentUpon>ProfesorMainWindow.xaml</DependentUpon>

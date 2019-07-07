@@ -21,7 +21,17 @@ namespace IndiceAcademico
 			return Nombre;
 		}
 
-		public string ToFile()
+        public int GetID()
+        {
+            return ID;
+        }
+
+        public string GetCarrera()
+        {
+            return Carrera;
+        }
+
+        public string ToFile()
 		{
 			return (ID + "," + Nombre + "," + Carrera);
 		}

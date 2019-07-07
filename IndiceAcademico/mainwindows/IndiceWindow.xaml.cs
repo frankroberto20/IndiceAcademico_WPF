@@ -58,5 +58,11 @@ namespace IndiceAcademico.mainwindows
 			
 
 		}
-	}
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RankingWindow rank = new RankingWindow();
+            rank.Show();
+        }
+    }
 }
