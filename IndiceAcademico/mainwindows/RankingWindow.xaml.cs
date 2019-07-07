@@ -44,11 +44,11 @@ namespace IndiceAcademico.mainwindows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            indicesLST.Clear();
       
             foreach (var estudiante in EstudiantesWindow.estudiantesLST)
             {
-               
-                
                 IndiceCalc indice = new IndiceCalc();
 
                 double IndiceGeneral = indice.CalcularIndice(estudiante);

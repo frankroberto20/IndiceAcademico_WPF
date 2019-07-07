@@ -65,6 +65,26 @@ namespace IndiceAcademico
                 }
             }
 
+            //Recuperar asignaturas de cada profesor
+            ManejoArchivo archivoAsignaturaProfesor = new ManejoArchivo();
+            foreach (var profesor in ProfesoresWindow.profesoresLST)
+            {
+                archivoAsignaturaProfesor.FilePath = profesor.Nombre + "-Asignaturas.csv";
+                if (File.Exists(archivoAsignaturaProfesor.FilePath))
+                    archivoAsignaturaProfesor.RecuperarLista(profesor.Asignaturas);
+
+                //Verificar si la asignatura esta en una lista
+                foreach (var asignatura in profesor.Asignaturas)
+                {
+                    Asignatura tempAsignatura = AsignaturasWindow.asignaturasLST.Find(asi => asi.Clave == asignatura.Clave);
+                    if (tempAsignatura != null)
+                    {
+                        tempAsignatura.IsInList = true;
+                    }
+                }
+            }
+            
+
         }
 
 		private void Estudiantes_ButtonClick(object sender, RoutedEventArgs e)

@@ -41,6 +41,7 @@ namespace IndiceAcademico.editwindows
                     if (!asignatura.IsInList)
                     {
                         profesor.Asignaturas.Add(asignatura);
+                        asignatura.IsInList = true;
                         ManejoArchivo archivo = new ManejoArchivo(profesor.Nombre + "-Asignaturas.csv");
                         archivo.OverWriteFile(profesor.Asignaturas);
 
