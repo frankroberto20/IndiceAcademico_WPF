@@ -4,12 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico.mainwindows"
-        mc:Ignorable="d" Height="450" Width="800">
+        Title="Ranking Indices" mc:Ignorable="d" Height="450" Width="500" Loaded="RankingLoaded" WindowStartupLocation="Manual" Top="300" Left="600">
     <Grid>
         <Label Content="Ranking de Indices" Margin="37,24,0,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="22" FontFamily="MS Reference Sans Serif" Foreground="Black" HorizontalAlignment="Left" Width="228"/>
         <Rectangle Fill="#FFFF2D2D" Height="4" Margin="40,65,40,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
         </Rectangle>
-        <Button Content="Mostrar Indices" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="633,36,0,0" Click="Button_Click"/>
-        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="335" VerticalAlignment="Top" Width="712" RenderTransformOrigin="0.5,0.51" Margin="40,74,0,0" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="335" VerticalAlignment="Top" Width="412" RenderTransformOrigin="0.5,0.51" Margin="40,74,0,0" IsReadOnly="True" BorderBrush="Red" Background="#FFD6D6D6" Foreground="Black" FontSize="16" HorizontalGridLinesBrush="#FFFF8282" VerticalGridLinesBrush="#FFFF8282"/>
     </Grid>
 </Window>

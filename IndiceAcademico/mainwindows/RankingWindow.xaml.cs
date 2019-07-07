@@ -42,7 +42,7 @@ namespace IndiceAcademico.mainwindows
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RankingLoaded(object sender, RoutedEventArgs e)
         {
 
             indicesLST.Clear();
@@ -66,11 +66,6 @@ namespace IndiceAcademico.mainwindows
             SortedList = indicesLST.OrderByDescending(o => o.Indice).ToList();
             DataGrid.ItemsSource = SortedList;
 
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           
         }
     }
 }

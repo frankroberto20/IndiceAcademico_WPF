@@ -71,21 +71,12 @@ namespace IndiceAcademico
 		private void Calificacion_Click(object sender, RoutedEventArgs e)
 		{
 			Panel.SetZIndex(uscCalificacion, 1);
-			Panel.SetZIndex(uscIndice, 0);
             Panel.SetZIndex(uscAsignaturas, 0);
 		}
-
-		private void Indice_Click(object sender, RoutedEventArgs e)
-		{
-			Panel.SetZIndex(uscCalificacion, 0);
-			Panel.SetZIndex(uscIndice, 1);
-            Panel.SetZIndex(uscAsignaturas, 0);
-        }
 
         private void Asignaturas_Click(object sender, RoutedEventArgs e)
         {
             Panel.SetZIndex(uscCalificacion, 0);
-            Panel.SetZIndex(uscIndice, 0);
             Panel.SetZIndex(uscAsignaturas, 1);
         }
 
