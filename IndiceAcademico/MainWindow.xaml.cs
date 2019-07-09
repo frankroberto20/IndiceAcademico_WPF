@@ -121,6 +121,7 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscAsignaturas, 0);
 			Panel.SetZIndex(uscCalificaciones, 1);
 			Panel.SetZIndex(uscIndice, 0);
+            uscCalificaciones.Update();
 		}
 
 		private void Indice_ButtonClick(object sender, RoutedEventArgs e)
@@ -130,6 +131,7 @@ namespace IndiceAcademico
 			Panel.SetZIndex(uscAsignaturas, 0);
 			Panel.SetZIndex(uscCalificaciones, 0);
 			Panel.SetZIndex(uscIndice, 1);
+            uscIndice.Update();
 		}
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {

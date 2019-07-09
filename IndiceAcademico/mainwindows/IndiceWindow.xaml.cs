@@ -21,6 +21,12 @@ namespace IndiceAcademico.mainwindows
 			public string PuntosHonor { get; set; }
 		}
 
+        public void Update()
+        {
+            ListEstudiantes.ItemsSource = null;
+            ListEstudiantes.ItemsSource = EstudiantesWindow.estudiantesLST;
+        }
+
 		Estudiante estudiante;
 		public IndiceWindow()
 		{

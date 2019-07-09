@@ -32,7 +32,13 @@ namespace IndiceAcademico.mainwindows
 			ListEstudiantes.ItemsSource = EstudiantesWindow.estudiantesLST;
 		}
 
-		private void CalificacionesDataGrid_Selected(object sender, RoutedEventArgs e)
+        public void Update()
+        {
+            ListEstudiantes.ItemsSource = null;
+            ListEstudiantes.ItemsSource = EstudiantesWindow.estudiantesLST;
+        }
+
+        private void CalificacionesDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
             if (blockHandler)
             {

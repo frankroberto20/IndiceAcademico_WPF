@@ -8,6 +8,7 @@
         Title="Estudiantes INTEC" Height="450" Width="800" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
+        <Label x:Name="NombreEstudiante" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Foreground="#FFA8A8A8" FontStyle="Italic" Margin="10"/>
         <Image Source="recursos/images/logo-intec-secundario.png" Margin="18,31,638,261"/>
         <Menu VerticalAlignment="Top" HorizontalAlignment="Left" Height="40" Width="40">
             <Menu.Background>

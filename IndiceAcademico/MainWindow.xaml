@@ -23,7 +23,7 @@
                 <MenuItem x:Name="CerrarSesion" Header="Cerrar Sesion" Click="CerrarSesion_Click"/>
             </MenuItem>
         </Menu>
-        <Canvas HorizontalAlignment="Left" Height="419" Margin="156,0,0,0" VerticalAlignment="Top" Width="636">
+        <Canvas x:Name="PanelUSC" HorizontalAlignment="Left" Height="419" Margin="156,0,0,0" VerticalAlignment="Top" Width="636">
             <mainwindows:EstudiantesWindow x:Name="uscEstudiantes" Height="419" Width="636" Panel.ZIndex="1"/>
             <mainwindows:AsignaturasWindow x:Name="uscAsignaturas" Height="419" Width="636" Panel.ZIndex="0"/>
             <mainwindows:CalificacionWindow x:Name="uscCalificaciones" Height="419" Width="636" Panel.ZIndex="0"/>

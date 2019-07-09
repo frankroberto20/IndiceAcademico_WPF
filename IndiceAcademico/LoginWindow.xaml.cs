@@ -58,6 +58,7 @@ namespace IndiceAcademico
 						{
 							userFound = true;
 							EstudianteMainWindow window = new EstudianteMainWindow("E," + inputUsuario.Text + "," + inputContrasena.Password);
+                            window.DisableRanking();
 							window.Show();
 							Close();
 						}

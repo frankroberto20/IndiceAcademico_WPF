@@ -8,6 +8,7 @@
         Title="Profesores INTEC" Height="450" Width="800" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
+        <Label x:Name="NombreProfesor" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Foreground="#FFA8A8A8" FontStyle="Italic" Margin="10"/>
         <Button Content="Calificaciones" HorizontalAlignment="Left" Margin="0,269,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Calificacion_Click"/>
         <Button Content="Asignaturas" HorizontalAlignment="Left" Margin="0,204,0,0" VerticalAlignment="Top" Width="156" Height="60" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontSize="20" FontFamily="Microsoft Sans Serif" Click="Asignaturas_Click"/>
         <Image Source="recursos/images/logo-intec-secundario.png" Margin="18,31,638,261"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="400" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="400" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="Black">
         <Border CornerRadius="40" BorderThickness="10" Background="#FFFF2F2F" />
         <Label Content="LOGIN" HorizontalAlignment="Center" Margin="40" VerticalAlignment="Top" FontSize="50" Foreground="White"/>

@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Collections.Generic;
 
 namespace IndiceAcademico.mainwindows
 {
@@ -32,7 +31,6 @@ namespace IndiceAcademico.mainwindows
             public double Indice { get; set; }
         }
 
-        Estudiante estudiante;
         IndiceA index = new IndiceA();
         public List<IndiceA> indicesLST = new List<IndiceA>();
         List<IndiceA> SortedList;

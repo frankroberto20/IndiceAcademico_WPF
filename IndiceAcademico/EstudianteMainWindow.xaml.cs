@@ -24,6 +24,11 @@ namespace IndiceAcademico
 
         bool closingBlock;
 
+        public void DisableRanking()
+        {
+            uscIndice.btnRanking.Visibility = Visibility.Hidden;
+        }
+
         public EstudianteMainWindow(string user)
 		{
 			InitializeComponent();
@@ -38,6 +43,8 @@ namespace IndiceAcademico
             Estudiante Estudiante = tempLista.Find(estudiante => estudiante.ToUser() == user);
 
             EstudiantesWindow.estudiantesLST.Add(Estudiante);
+
+            NombreEstudiante.Content = Estudiante.Nombre;
 
             ManejoArchivo archivoProfesores = new ManejoArchivo(ProfesoresWindow.filepathPro);
             if (File.Exists(archivoProfesores.FilePath))

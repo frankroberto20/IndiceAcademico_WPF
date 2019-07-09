@@ -44,6 +44,8 @@ namespace IndiceAcademico
 
             Profesor = tempLista.Find(profesor => profesor.ToUser() == user);
 
+            NombreProfesor.Content = Profesor.Nombre;
+
             ManejoArchivo archivoEstudiante = new ManejoArchivo(Profesor.Nombre + "-Estudiantes.csv");
             if (File.Exists(archivoEstudiante.FilePath))
                 archivoEstudiante.RecuperarLista(EstudiantesWindow.estudiantesLST);

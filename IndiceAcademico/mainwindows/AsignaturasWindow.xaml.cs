@@ -33,8 +33,6 @@ namespace IndiceAcademico.mainwindows
 		{
 			InitializeComponent();
 
-			
-
 			AsignaturaDataGrid.ItemsSource = asignaturasLST;
 		}
 
