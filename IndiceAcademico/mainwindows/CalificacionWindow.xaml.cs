@@ -92,9 +92,16 @@ namespace IndiceAcademico.mainwindows
 
 		private void ListEstudiantes_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			Estudiante estudiante = (Estudiante)ListEstudiantes.SelectedItem;
-			CalificacionesDataGrid.ItemsSource = null;
-			CalificacionesDataGrid.ItemsSource = estudiante.Calificaciones;
+			if (ListEstudiantes.SelectedItem != null)
+            {
+				Estudiante estudiante = (Estudiante)ListEstudiantes.SelectedItem;
+				CalificacionesDataGrid.ItemsSource = null;
+				CalificacionesDataGrid.ItemsSource = estudiante.Calificaciones;
+            }
+            else
+            {
+				CalificacionesDataGrid.ItemsSource = null;
+            }
 		}
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
