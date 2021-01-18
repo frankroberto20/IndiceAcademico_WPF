@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.IO;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -34,9 +35,16 @@ namespace IndiceAcademico.editwindows
 			if (ListaProfesores.SelectedItem != null)
 			{
 				Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
+
+				var oldProfesor = profesor.ToUser();
 				profesor.Nombre = inputNombre.Text;
 
 				archivo.OverWriteFile(ProfesoresWindow.profesoresLST);
+
+				File.WriteAllLines(LoginWindow.filepathUser, File.ReadLines(LoginWindow.filepathUser).Where(l => l != oldProfesor).ToList());
+
+				string[] usuario = { profesor.ToUser() };
+				File.AppendAllLines(LoginWindow.filepathUser, usuario);
 
 				MessageBox.Show("Cambios guardados exitosamente!");
 				Close();

@@ -40,6 +40,12 @@ namespace IndiceAcademico.mainwindows
                     archivo.RecuperarLista(profesor.Asignaturas);
                 }
 
+				archivo.FilePath = profesor.Nombre + "-Estudiantes.csv";
+				if (File.Exists(profesor.Nombre + "-Estudiantes.csv"))
+                {
+                    archivo.RecuperarLista(profesor.Estudiantes);
+                }
+
                 foreach (var asignatura in profesor.Asignaturas)
                 {
                     Asignatura tempAsignatura = AsignaturasWindow.asignaturasLST.Find(asi => asi.Clave == asignatura.Clave);

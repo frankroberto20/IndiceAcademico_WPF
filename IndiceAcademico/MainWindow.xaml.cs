@@ -65,7 +65,7 @@ namespace IndiceAcademico
                 }
             }
 
-            //Recuperar asignaturas de cada profesor
+            //Recuperar asignaturas y estudiantes de cada profesor
             ManejoArchivo archivoAsignaturaProfesor = new ManejoArchivo();
             foreach (var profesor in ProfesoresWindow.profesoresLST)
             {
@@ -82,6 +82,10 @@ namespace IndiceAcademico
                         tempAsignatura.IsInList = true;
                     }
                 }
+
+                archivoAsignaturaProfesor.FilePath = profesor.Nombre + "-Estudiantes.csv";
+                if (File.Exists(archivoAsignaturaProfesor.FilePath))
+                    archivoAsignaturaProfesor.RecuperarLista(profesor.Estudiantes);
             }
             
 

@@ -148,7 +148,6 @@ namespace IndiceAcademico.classes
 			File.AppendAllLines(FilePath, datos);
 		}
 
-
 		public ManejoArchivo(string filepath)
 		{
 			FilePath = filepath;

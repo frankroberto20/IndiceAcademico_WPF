@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.IO;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -42,10 +43,23 @@ namespace IndiceAcademico.editwindows
 			if (ListaEstudiantes.SelectedItem != null)
 			{
 				Estudiante estudiante = (Estudiante)ListaEstudiantes.SelectedItem;
+
+				var oldEstudiante = estudiante.ToFile();
 				estudiante.Nombre = inputNombre.Text;
 				estudiante.Carrera = inputCarrera.Text;
 
 				archivo.OverWriteFile(EstudiantesWindow.estudiantesLST);
+
+				var tempFile = LoginWindow.filepathUser;
+				var linesToKeep = File.ReadLines(LoginWindow.filepathUser).Where(l => l != oldEstudiante);
+
+				File.WriteAllLines(tempFile, linesToKeep);
+
+				File.Delete(LoginWindow.filepathUser);
+				File.Move(tempFile, LoginWindow.filepathUser);
+
+				string[] usuario = { estudiante.ToUser() };
+				File.AppendAllLines(LoginWindow.filepathUser, usuario);
 
 				MessageBox.Show("Cambios guardados exitosamente!");
 				Close();
