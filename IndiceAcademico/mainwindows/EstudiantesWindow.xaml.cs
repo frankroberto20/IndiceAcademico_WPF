@@ -53,6 +53,7 @@ namespace IndiceAcademico.mainwindows
 			}
 
 			archivo.OverWriteFile(estudiantesLST);
+			File.WriteAllLines(LoginWindow.filepathUser, File.ReadLines(LoginWindow.filepathUser).Where(l => l != estudiante.ToUser()).ToList());
 
 			EstudiantesDataGrid.ItemsSource = null;
 			EstudiantesDataGrid.ItemsSource = estudiantesLST;

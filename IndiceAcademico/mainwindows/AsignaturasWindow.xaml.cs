@@ -27,7 +27,7 @@ namespace IndiceAcademico.mainwindows
 
 		public static List<Asignatura> asignaturasLST = new List<Asignatura>();
 		public static string filepathAsi = "Asignaturas.csv";
-        ManejoArchivo archivo = new ManejoArchivo();
+        ManejoArchivo archivo = new ManejoArchivo(filepathAsi);
 
         public AsignaturasWindow()
 		{

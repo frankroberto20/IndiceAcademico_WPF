@@ -42,7 +42,7 @@ namespace IndiceAcademico.editwindows
                     {
                         profesor.Asignaturas.Add(asignatura);
                         asignatura.IsInList = true;
-                        ManejoArchivo archivo = new ManejoArchivo(profesor.Nombre + "-Asignaturas.csv");
+                        ManejoArchivo archivo = new ManejoArchivo(profesor.ID + profesor.Nombre + "-Asignaturas.csv");
                         archivo.OverWriteFile(profesor.Asignaturas);
 
                         GridAsignaturas.ItemsSource = null;

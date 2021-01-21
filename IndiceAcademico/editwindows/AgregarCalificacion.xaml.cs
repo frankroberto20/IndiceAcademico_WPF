@@ -36,8 +36,8 @@ namespace IndiceAcademico.editwindows
 
 			if (inputNota.Text != "" && ListaEstudiantes.SelectedItem != null && ListaAsignatura.SelectedItem != null)
 			{
-                string fileName = estudiante.Nombre + "-Calificaciones.csv";
-                string directoryName = ProfesorMainWindow.Profesor.Nombre + "-RegistroCalificaciones";
+                string fileName = estudiante.ID + estudiante.Nombre + "-Calificaciones.csv";
+                string directoryName = ProfesorMainWindow.Profesor.ID + ProfesorMainWindow.Profesor.Nombre + "-RegistroCalificaciones";
                 string fileLocation = Path.Combine(directoryName, fileName);
 
                 if (!File.Exists(fileLocation) || !Directory.Exists(directoryName))

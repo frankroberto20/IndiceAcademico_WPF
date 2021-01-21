@@ -39,7 +39,7 @@ namespace IndiceAcademico.editwindows
                 if (profesor.Estudiantes.Where(est => est.ID == estudiante.ID).Count() == 0)
                 {
                     profesor.Estudiantes.Add(estudiante);
-                    ManejoArchivo archivo = new ManejoArchivo(profesor.Nombre + "-Estudiantes.csv");
+                    ManejoArchivo archivo = new ManejoArchivo(profesor.ID + profesor.Nombre + "-Estudiantes.csv");
                     archivo.OverWriteFile(profesor.Estudiantes);
 
                     GridEstudiantes.ItemsSource = null;
