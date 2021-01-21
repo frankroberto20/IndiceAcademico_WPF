@@ -46,12 +46,12 @@ namespace IndiceAcademico
 
             NombreProfesor.Content = Profesor.Nombre;
 
-            ManejoArchivo archivoEstudiante = new ManejoArchivo(Profesor.Nombre + "-Estudiantes.csv");
+            ManejoArchivo archivoEstudiante = new ManejoArchivo(Profesor.ID + Profesor.Nombre + "-Estudiantes.csv");
             if (File.Exists(archivoEstudiante.FilePath))
                 archivoEstudiante.RecuperarLista(EstudiantesWindow.estudiantesLST);
 
 
-			ManejoArchivo archivoAsignatura = new ManejoArchivo(Profesor.Nombre + "-Asignaturas.csv");
+			ManejoArchivo archivoAsignatura = new ManejoArchivo(Profesor.ID + Profesor.Nombre + "-Asignaturas.csv");
 			if (File.Exists(archivoAsignatura.FilePath))
 				archivoAsignatura.RecuperarLista(AsignaturasWindow.asignaturasLST);
 
@@ -61,7 +61,7 @@ namespace IndiceAcademico
 
 			foreach (var estudiante in EstudiantesWindow.estudiantesLST)
 			{
-				archivoCalificacion.FilePath = Path.Combine(Profesor.Nombre + "-RegistroCalificaciones", estudiante.Nombre + "-Calificaciones.csv");
+				archivoCalificacion.FilePath = Path.Combine(Profesor.ID + Profesor.Nombre + "-RegistroCalificaciones", estudiante.ID + estudiante.Nombre + "-Calificaciones.csv");
 				if (File.Exists(archivoCalificacion.FilePath))
 				{
 					archivoCalificacion.RecuperarLista(estudiante.Calificaciones);

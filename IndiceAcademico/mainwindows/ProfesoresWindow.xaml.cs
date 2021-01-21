@@ -34,14 +34,14 @@ namespace IndiceAcademico.mainwindows
             //Recuperar asignaturas de cada profesor
             foreach (var profesor in profesoresLST)
             {
-                archivo.FilePath = profesor.Nombre + "-Asignaturas.csv";
-                if (File.Exists(profesor.Nombre + "-Asignaturas.csv"))
+                archivo.FilePath = profesor.ID + profesor.Nombre + "-Asignaturas.csv";
+                if (File.Exists(archivo.FilePath))
                 {
                     archivo.RecuperarLista(profesor.Asignaturas);
                 }
 
-				archivo.FilePath = profesor.Nombre + "-Estudiantes.csv";
-				if (File.Exists(profesor.Nombre + "-Estudiantes.csv"))
+				archivo.FilePath = profesor.ID + profesor.Nombre + "-Estudiantes.csv";
+				if (File.Exists(archivo.FilePath))
                 {
                     archivo.RecuperarLista(profesor.Estudiantes);
                 }

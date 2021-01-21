@@ -59,7 +59,7 @@ namespace IndiceAcademico
             ManejoArchivo archivoCalificaciones = new ManejoArchivo();
             foreach (var profesor in ProfesoresWindow.profesoresLST)
             {
-                archivoCalificaciones.FilePath = Path.Combine(profesor.Nombre + "-RegistroCalificaciones", Estudiante.Nombre + "-Calificaciones.csv");
+                archivoCalificaciones.FilePath = Path.Combine(profesor.ID + profesor.Nombre + "-RegistroCalificaciones", Estudiante.ID + Estudiante.Nombre + "-Calificaciones.csv");
                 if (File.Exists(archivoCalificaciones.FilePath))
                 {
                     archivoCalificaciones.RecuperarLista(Estudiante.Calificaciones);
