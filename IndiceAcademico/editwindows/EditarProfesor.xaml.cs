@@ -35,6 +35,8 @@ namespace IndiceAcademico.editwindows
 			if (ListaProfesores.SelectedItem != null)
 			{
 				Profesor profesor = (Profesor)ListaProfesores.SelectedItem;
+				
+				Directory.Move(profesor.ID + profesor.Nombre + "RegistroCalificaciones", profesor.ID + inputNombre.Text + "RegistroCalificaciones");
 
 				var oldProfesor = profesor.ToUser();
 				profesor.Nombre = inputNombre.Text;

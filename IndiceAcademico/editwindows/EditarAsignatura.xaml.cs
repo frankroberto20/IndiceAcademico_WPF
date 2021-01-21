@@ -10,7 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.IO;
 using IndiceAcademico.classes;
 using IndiceAcademico.mainwindows;
 
@@ -47,6 +47,16 @@ namespace IndiceAcademico.editwindows
 				asignatura.Creditos = Convert.ToInt32(inputCreditos.Text);
 
 				archivo.OverWriteFile(AsignaturasWindow.asignaturasLST);
+
+				ManejoArchivo archivoPro = new ManejoArchivo();
+				foreach(var profesor in ProfesoresWindow.profesoresLST)
+                {
+					archivoPro.FilePath = profesor.ID + profesor.Nombre + "-Asignaturas.csv";
+					if (File.Exists(archivoPro.FilePath))
+                    {
+						archivoPro.OverWriteFile(profesor.Asignaturas);
+                    }
+                }
 
 				MessageBox.Show("Cambios guardados exitosamente!");
 				Close();

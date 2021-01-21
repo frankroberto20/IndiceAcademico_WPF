@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using IndiceAcademico.editwindows;
 using IndiceAcademico.classes;
 using System.IO;
@@ -50,10 +49,27 @@ namespace IndiceAcademico.mainwindows
 			if (result == MessageBoxResult.Yes)
 			{
 				estudiantesLST.Remove(estudiante);
-			}
 
-			archivo.OverWriteFile(estudiantesLST);
-			File.WriteAllLines(LoginWindow.filepathUser, File.ReadLines(LoginWindow.filepathUser).Where(l => l != estudiante.ToUser()).ToList());
+				foreach(var profesor in ProfesoresWindow.profesoresLST)
+				{
+					profesor.Estudiantes.Remove(estudiante);
+
+					archivo.FilePath = profesor.ID + profesor.Nombre + "-Estudiantes.csv";
+					if (File.Exists(archivo.FilePath))
+					{
+						archivo.OverWriteFile(profesor.Estudiantes);
+					}
+				
+					archivo.FilePath = Path.Combine(profesor.ID + profesor.Nombre + "-RegistroCalificaciones.csv", estudiante.ID + estudiante.Nombre + "-Calificaciones.csv");
+					if (File.Exists(archivo.FilePath))
+					{
+						File.Delete(archivo.FilePath);
+					}
+				}
+
+				archivo.OverWriteFile(estudiantesLST);
+				File.WriteAllLines(LoginWindow.filepathUser, File.ReadLines(LoginWindow.filepathUser).Where(l => l != estudiante.ToUser()).ToList());
+			}
 
 			EstudiantesDataGrid.ItemsSource = null;
 			EstudiantesDataGrid.ItemsSource = estudiantesLST;

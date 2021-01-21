@@ -54,10 +54,22 @@ namespace IndiceAcademico.mainwindows
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    asignaturasLST.Remove((Asignatura)AsignaturaDataGrid.SelectedItem);
-                }
+					var asignatura = (Asignatura)AsignaturaDataGrid.SelectedItem;
+                    asignaturasLST.Remove(asignatura);
 
-                archivo.OverWriteFile(asignaturasLST);
+					archivo.OverWriteFile(asignaturasLST);
+
+					foreach(var profesor in ProfesoresWindow.profesoresLST)
+					{
+						profesor.Asignaturas.Remove(asignatura);
+
+						archivo.FilePath = profesor.ID + profesor.Nombre + "-Asignaturas.csv";
+						if (File.Exists(archivo.FilePath))
+						{
+							archivo.OverWriteFile(profesor.Estudiantes);
+						}
+					}
+                }
 
                 AsignaturaDataGrid.ItemsSource = null;
                 AsignaturaDataGrid.ItemsSource = asignaturasLST;
