@@ -26,7 +26,7 @@ namespace IndiceAcademico.mainwindows
 
 		public static List<Estudiante> estudiantesLST = new List<Estudiante>();
 		public static string filepathEs = "Estudiantes.csv";
-        ManejoArchivo archivo = new ManejoArchivo();
+        ManejoArchivo archivo = new ManejoArchivo(filepathEs);
 
         public void ReloadDataGrid()
         {

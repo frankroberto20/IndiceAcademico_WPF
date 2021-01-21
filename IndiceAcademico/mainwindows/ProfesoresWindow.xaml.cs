@@ -70,13 +70,15 @@ namespace IndiceAcademico.mainwindows
 		private void ProfesoresDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
 			MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
+			var profesor = (Profesor)ProfesoresDataGrid.SelectedItem;
 
 			if (result == MessageBoxResult.Yes)
 			{
-				profesoresLST.Remove((Profesor)ProfesoresDataGrid.SelectedItem);
+				profesoresLST.Remove(profesor);
 			}
 
 			archivo.OverWriteFile(profesoresLST);
+			File.WriteAllLines(LoginWindow.filepathUser, File.ReadLines(LoginWindow.filepathUser).Where(l => l != profesor.ToUser()).ToList());
 
 			ProfesoresDataGrid.ItemsSource = null;
 			ProfesoresDataGrid.ItemsSource = profesoresLST;
